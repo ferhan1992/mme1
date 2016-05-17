@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+		<title>create</title>
+		<meta name="description" content="create">
+		<meta name="author" content="Ferhan Kaplanseren and Ömür Düner">
+		<link rel="stylesheet" type="text/css" href="css/formstyle.css">
+	</head>
+	<body>
+	<div>      
+     <div id="formTitle">
+          <h2>
+               Create Appointment
+          </h2>
+     </div>      
+     <form id="createForm">      
+          <div id="subject">
+               <label for="subject">
+                    Subject
+               </label><br>
+               <input type="text" name="subject" id="subject" required="required">
+          </div>
+          <div id="geo">
+               <label for="geo">
+                    Geo Coordinates
+               </label><br>
+               <input type="text" name="geo" id="geo" pattern="^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$" placeholder = "-50.21, +142.54">
+          </div>
+          <div id="url">
+               <label for="url">
+                    URL to location
+               </label><br>
+               <input type="url" name="url" id="url" placeholder = "http://www.example.com">
+          </div>
+          <div id="email">
+               <label for="email">
+                    Confirmation email address
+               </label><br>
+               <input type="email" name="email" id="email" required="required" placeholder = "anyone@anywhere.com">
+          </div>
+          <div id="date">
+               <label for="date">
+                    Date
+               </label><br>
+               <input id="date" type="date" name="date" required="required" >
+          </div>
+          <div id="time">
+               <label for="time">
+                    Time
+               </label><br>
+               <input type="time" name="time" id="time" required="required">
+          </div><br>
+          <div id="submit">
+               <input type="submit" value="Submit">
+          </div>
+     </form>
+	</div>
+	</body>
+</html>
