@@ -20,12 +20,12 @@ function validateForm(a) {
             return false;
     }
 }
+
 function validateFind(a) {
     var appointmentid = document.forms[a]["appointmentid"].value;
     var email = document.forms[a]["email"].value;
     var geo = document.forms[a]["geo"].value;
     var boo = true;
-
     if (appointmentid !== "" && !appointmentidPattern.test(appointmentid)) {
         alert("Please use a correct Appointment ID.\nRange: 0 - 100");
         boo = false;
@@ -45,7 +45,6 @@ function validateDelete(a) {
     var appointmentid = document.forms[a]["appointmentid"].value;
     var email = document.forms[a]["email"].value;
     var boo = true;
-
     if (appointmentid === "" || !appointmentidPattern.test(appointmentid)) {
         alert("Please use a correct Appointment ID.\nRange: 0 - 100");
         boo = false;
@@ -61,7 +60,6 @@ function validateUpdate(a) {
     var appointmentid = document.forms[a]["appointmentid"].value;
     var geo = document.forms[a]["geo"].value;
     var boo = true;
-
     if (appointmentid === "" || !appointmentidPattern.test(appointmentid)) {
         alert("Please use a correct Appointment ID.\nRange: 0 - 100");
         boo = false;
@@ -80,7 +78,6 @@ function validateCreate(a) {
     var date = document.forms[a]["date"].value;
     var time = document.forms[a]["time"].value;
     var boo = true;
-
     if (subject === "") {
         alert("Subject can't be empty.");
         boo = false;
