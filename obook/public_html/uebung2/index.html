@@ -7,6 +7,7 @@
         <meta name="author" content="Ferhan Kaplanseren and Ömür Düner">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <script type="text/javascript" language="JavaScript" src="js/menuscript.js"></script>
+        <script type="text/javascript" language="JavaScript" src="js/formscript.js"></script>
     </head>
     <body>
         <div>
@@ -29,7 +30,7 @@
             </header>
         </div>
         <div>
-            <section id="black">
+            <section class="black">
                 <article id="about">
                     <h2>About this project</h2>
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
@@ -37,7 +38,7 @@
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                 </article>
             </section>
-            <section id="white">
+            <section class="white">
                 <article id = "features">
                     <h2>Features of oBook</h2>
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
@@ -45,7 +46,7 @@
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                 </article>
             </section>
-            <section id="black">
+            <section class="black">
                 <article id="pricing">
                     <h2>Pricing of oBook</h2>
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
@@ -53,7 +54,7 @@
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                 </article>
             </section>
-            <section id="white">
+            <section class="white">
                 <article id="demo">
                     <h2>oBook Demo</h2>
                     <div align="center">
@@ -67,130 +68,134 @@
                             <button name="Show all" onclick="switchForm('showallform')">Show all Appointments</button>
                             <button name="Remove" onclick="switchForm('deleteform')">Remove Appointment</button>
                         </nav>
-                            <div id="createform" class="startform">
-                                <form id="create">      
-                                    <h4>
-                                        Create Appointment
-                                    </h4>
-                                    <label for="subject">
-                                        Subject
-                                    </label><br>
-                                    <input type="text" name="subject" id="subject" required="required"><br>
-                                    <label for="geo">
-                                        Geo Coordinates
-                                    </label><br>
-                                    <input type="text" name="geo" id="geo" pattern="^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$" placeholder = "-50.21, +142.54"><br>
-                                    <label for="url">
-                                        URL to location
-                                    </label><br>
-                                    <input type="url" name="url" id="url" placeholder = "http://www.example.com"><br>
-                                    <label for="email">
-                                        Confirmation email address
-                                    </label><br>
-                                    <input type="email" name="email" id="email" required="required" placeholder = "anyone@anywhere.com"><br>
-                                    <label for="date">
-                                        Date
-                                    </label><br>
-                                    <input id="date" type="date" name="date" required="required" ><br>
-                                    <label for="time">
-                                        Time
-                                    </label><br>
-                                    <input type="time" name="time" id="time" required="required"><br><br>
-                                    <input type="submit" value="Submit"><br>
-                                </form>
-                            </div>
-                            <div id="findform" class="form">
-                                <form id="find">
-                                    <h4>
-                                        Find appointment
-                                    </h4> 
-                                    <label for="appointmentid">
-                                        Appointment ID
-                                    </label><br>
-                                    <input type="text" name="subject" id="subject"><br>
-                                    <label for="subject">
-                                        Subject
-                                    </label><br>
-                                    <input type="text" name="subject" id="subject"><br>
-                                    <label for="geo">
-                                        Geo Coordinates
-                                    </label><br>
-                                    <input type="text" name="geo" id="geo" pattern="^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$" placeholder = "-50.21, +142.54"><br>
-                                    <label for="url">
-                                        URL to location
-                                    </label><br>
-                                    <input type="url" name="url" id="url" placeholder = "http://www.example.com"><br>
-                                    <label for="email">
-                                        Confirmation email address
-                                    </label><br>
-                                    <input type="email" name="email" id="email" placeholder = "anyone@anywhere.com"><br>
-                                    <label for="date">
-                                        Date
-                                    </label><br>
-                                    <input id="date" type="date" name="date"><br>
-                                    <label for="time">
-                                        Time
-                                    </label><br>
-                                    <input type="time" name="time" id="time"><br><br>
-                                    <input type="submit" value="Submit"><br>
-                                </form>
-                            </div>
-                            <div id="updateform" class="form">
-                                <form id="update">
-                                    <h4>
-                                        Update Appointment
-                                    </h4>
-                                    <label for="appointmentid">
-                                        Appointment ID
-                                    </label><br>
-                                    <input type="text" name="subject" id="subject" required = "required"><br>
-                                    <label for="subject">
-                                        Subject
-                                    </label><br>
-                                    <input type="text" name="subject" id="subject"><br>
-                                    <label for="geo">
-                                        Geo Coordinates
-                                    </label><br>
-                                    <input type="text" name="geo" id="geo" pattern="^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$" placeholder = "-50.21, +142.54"><br>
-                                    <label for="url">
-                                        URL to location
-                                    </label><br>
-                                    <input type="url" name="url" id="url" placeholder = "http://www.example.com"><br>
-                                    <label for="date">
-                                        Date
-                                    </label><br>
-                                    <input id="date" type="date" name="date"><br>
-                                    <label for="time">
-                                        Time
-                                    </label><br>
-                                    <input type="time" name="time" id="time"><br><br>
-                                    <input type="submit" value="Submit"><br>
-                                </form>
-                            </div>
-                            <div id="showallform" class="form">
-                                <form id="showall">
-                                    <h4>
-                                        Show all appointments
-                                    </h4>    
-                                    <input type="submit" value="Submit"><br>
-                                </form>
-                            </div>
-                            <div id="deleteform" class="form">
-                                <form id="delete">  
-                                    <h4>
-                                        Delete Appointment
-                                    </h4>
-                                    <label for="subject">
-                                        Appointment ID
-                                    </label><br>
-                                    <input type="text" name="subject" id="subject" required="required"><br>
-                                    <label for="email">
-                                        Confirmation email address
-                                    </label><br>
-                                    <input type="email" name="email" id="email" required="required" autocomplete="off"><br><br>
-                                    <input type="submit" value="Submit"><br>
-                                </form>
-                            </div>
+                        <div id="createform" class="startform">
+                            <form id="create" onsubmit="validateForm('create')">      
+                                <h4>
+                                    Create Appointment
+                                </h4>
+                                <label for="createsubject">
+                                    Subject*
+                                </label><br>
+                                <input type="text" name="subject" id="createsubject"><br>
+                                <label for="creategeo">
+                                    Geo Coordinates
+                                </label><br>
+                                <input id="creategeo" type="text" name="geo" placeholder = "-50.21, +142.54"><br>
+                                <label for="createurl">
+                                    URL to location
+                                </label><br>
+                                <input id ="createurl" type="url" name="url" placeholder = "http://www.example.com"><br>
+                                <label for="createemail">
+                                    Confirmation email address*
+                                </label><br>
+                                <input id="createemail" type="email" name="email" placeholder = "anyone@obook.eu"><br>
+                                <label for="createdate">
+                                    Date*
+                                </label><br>
+                                <input id="createdate" type="date" name="date"><br>
+                                <label for="createtime">
+                                    Time*
+                                </label><br>
+                                <input id="createtime" type="time" name="time"><br><br>
+                                <input type="submit" value="Submit"><br>
+                            </form><br>
+                            <button name="generate" onclick="generateData('create')">Generate Test Data</button>
+                        </div>
+                        <div id="findform" class="form">
+                            <form id="find" onsubmit="validateForm('find')">
+                                <h4>
+                                    Find appointment
+                                </h4> 
+                                <label for="findappointmentid">
+                                    Appointment ID
+                                </label><br>
+                                <input id="findappointmentid" type="text" name="appointmentid"><br>
+                                <label for="findsubject">
+                                    Subject
+                                </label><br>
+                                <input id="findsubject" type="text" name="subject" ><br>
+                                <label for="findgeo">
+                                    Geo Coordinates
+                                </label><br>
+                                <input id="findgeo" type="text" name="geo" placeholder = "-50.21, +142.54"><br>
+                                <label for="findurl">
+                                    URL to location
+                                </label><br>
+                                <input id="findurl" type="url" name="url" placeholder = "http://www.example.com"><br>
+                                <label for="findemail">
+                                    Confirmation email address
+                                </label><br>
+                                <input id = "findemail" type="email" name="email" placeholder = "anyone@obook.eu"><br>
+                                <label for="finddate">
+                                    Date
+                                </label><br>
+                                <input id="finddate" type="date" name="date"><br>
+                                <label for="findtime">
+                                    Time
+                                </label><br>
+                                <input type="time" name="time" id="findtime"><br><br>
+                                <input type="submit" value="Submit"><br>
+                            </form><br>
+                            <button name="generate" onclick="generateData('find')">Generate Test Data</button>
+                        </div>
+                        <div id="updateform" class="form">
+                            <form id="update" onsubmit="validateForm('update')">
+                                <h4>
+                                    Update Appointment
+                                </h4>
+                                <label for="updateappointmentid">
+                                    Appointment ID
+                                </label><br>
+                                <input id="updateappointmentid" type="text" name="appointmentid"><br>
+                                <label for="updatesubject">
+                                    Subject
+                                </label><br>
+                                <input id="updatesubject" type="text" name="subject" ><br>
+                                <label for="updategeo">
+                                    Geo Coordinates
+                                </label><br>
+                                <input id="updategeo" type="text" name="geo" placeholder = "-50.21, +142.54"><br>
+                                <label for="updateurl">
+                                    URL to location
+                                </label><br>
+                                <input id="updateurl" type="url" name="url" placeholder = "http://www.example.com"><br>
+                                <label for="updatedate">
+                                    Date
+                                </label><br>
+                                <input id="updatedate" type="date" name="date"><br>
+                                <label for="updatetime">
+                                    Time
+                                </label><br>
+                                <input id="updatetime" type="time" name="time"><br><br>
+                                <input type="submit" value="Submit"><br>
+                            </form><br>
+                            <button name="generate" onclick="generateData('update')">Generate Test Data</button>
+                        </div>
+                        <div id="showallform" class="form">
+                            <form id="showall">
+                                <h4>
+                                    Show all appointments
+                                </h4>    
+                                <input type="submit" value="Submit"><br>
+                            </form>
+                        </div>
+                        <div id="deleteform" class="form" onsubmit="validateForm('delete')">
+                            <form id="delete">  
+                                <h4>
+                                    Delete Appointment
+                                </h4>
+                                <label for="deleteappointmentid">
+                                    Appointment ID
+                                </label><br>
+                                <input id="deleteappointmentid" type="text" name="appointmentid"><br>
+                                <label for="deleteemail">
+                                    Confirmation email address
+                                </label><br>
+                                <input id="deleteemail" type="email" name="email"placeholder = "anyone@obook.eu"><br><br>
+                                <input type="submit" value="Submit"><br>
+                            </form><br>
+                            <button name="generate" onclick="generateData('delete')">Generate Test Data</button>
+                        </div>
                         <table class="output">
                             <tr>
                                 <td>Appointment ID</td>
@@ -249,19 +254,16 @@
                         </table>
                         </section>
                     </div>
-                </article>
-            </section>
-            <section id="black">
-                <article id = "support">
-                    <h2>Support</h2>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>	
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </article>
-            </section>
-        </div>
-        <footer>
-            <p>Copyright &copy; 2016 - All Rights Reserved - <a href="#">oBook</a></p>
-        </footer>
-    </body>
-</html>
+                    <section class="black">
+                        <article id = "support">
+                            <h2>Support</h2>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>	
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                        </article>
+                    </section>
+                    <footer>
+                        <p>Copyright &copy; 2016 - All Rights Reserved - <a href="#">oBook</a></p>
+                    </footer>
+                    </body>
+                    </html>

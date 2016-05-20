@@ -63,7 +63,7 @@ footer a {
 }
 
 /* Style der dunklen Abschnitte */
-#black {
+.black {
     padding: 5% 10%;
     font-size: 150%;
     color: #EEEEEE;
@@ -71,7 +71,7 @@ footer a {
 }
 
 /* Style der hellen Abschnitte */
-#white {
+.white {
     padding: 5% 10%;
     font-size: 150%;
     color: black;
