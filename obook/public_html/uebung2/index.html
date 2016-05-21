@@ -6,20 +6,9 @@
         <meta name="description" content="Online appointment book">
         <meta name="author" content="Ferhan Kaplanseren and Ömür Düner">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDCiEIDjeh1tNqpk7DX8kwreVZXDb71Eec"></script>
         <script type="text/javascript" language="JavaScript" src="js/menuscript.js"></script>
         <script type="text/javascript" language="JavaScript" src="js/formscript.js"></script>
-        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDCiEIDjeh1tNqpk7DX8kwreVZXDb71Eec"></script>
-        <script>
-            function initialize() {
-                var mapProp = {
-                    center: new google.maps.LatLng(51.508742, -0.120850),
-                    zoom: 5,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                };
-                var map = new google.maps.Map(document.getElementById("googleMaps"), mapProp);
-            }
-            google.maps.event.addDomListener(window, 'load', initialize);
-        </script>
     </head>
     <body>
         <div>
@@ -79,10 +68,11 @@
                             <button name="Update" onclick="switchForm('updateform')">Update Appointment</button>
                             <button name="Show all" onclick="switchForm('showallform')">Show all Appointments</button>
                             <button name="Remove" onclick="switchForm('deleteform')">Delete Appointment</button>
-                        </nav>
+                        </nav><br>
+                        <div id ="errors"></div>
                         <div class="box">
                             <div id="createform" class="startform">
-                                <form id="create" onsubmit="validateForm('create')">      
+                                <form id="create">      
                                     <h4>
                                         Create Appointment
                                     </h4>
@@ -111,12 +101,12 @@
                                     </label><br>
                                     <input id="createtime" type="time" name="time">
                                     <h6>Fields marked with * are needed Fields. </h6>
-                                    <input type="submit" value="Submit"><br><br>
+                                    <button name="submit" type="button" value="Submit" onclick="return validateForm('create')">Submit</button><br><br>
                                 </form>
                                 <button name="generate" onclick="generateData('create')">Generate Test Data</button>
                             </div>
                             <div id="findform" class="form">
-                                <form id="find" onsubmit="validateForm('find')">
+                                <form id="find">
                                     <h4>
                                         Find appointment
                                     </h4> 
@@ -149,12 +139,12 @@
                                     </label><br>
                                     <input type="time" name="time" id="findtime">
                                     <h6>Fields marked with * are needed Fields. </h6>
-                                    <input type="submit" value="Submit"><br>
+                                    <button name="submit" type="button" value="Submit" onclick="return validateForm('find')">Submit</button><br>
                                 </form><br>
                                 <button name="generate" onclick="generateData('find')">Generate Test Data</button>
                             </div>
                             <div id="updateform" class="form">
-                                <form id="update" onsubmit="validateForm('update')">
+                                <form id="update">
                                     <h4>
                                         Update Appointment
                                     </h4>
@@ -183,7 +173,7 @@
                                     </label><br>
                                     <input id="updatetime" type="time" name="time">
                                     <h6>Fields marked with * are needed Fields. </h6>
-                                    <input type="submit" value="Submit"><br>
+                                    <button name="submit" type="button" value="Submit" onclick="return validateForm('update')">Submit</button><br>
                                 </form><br>
                                 <button name="generate" onclick="generateData('update')">Generate Test Data</button>
                             </div>
@@ -195,7 +185,7 @@
                                     <input type="submit" value="Submit"><br>
                                 </form>
                             </div>
-                            <div id="deleteform" class="form" onsubmit="validateForm('delete')">
+                            <div id="deleteform" class="form">
                                 <form id="delete">  
                                     <h4>
                                         Delete Appointment
@@ -209,7 +199,7 @@
                                     </label><br>
                                     <input id="deleteemail" type="email" name="email" placeholder = "anyone@obook.eu">
                                     <h6>Fields marked with * are needed Fields. </h6>
-                                    <input type="submit" value="Submit"><br>
+                                    <button name="submit" type="button" value="Submit" onclick="return validateForm('delete')">Submit</button>
                                 </form><br>
                                 <button name="generate" onclick="generateData('delete')">Generate Test Data</button>
                             </div>

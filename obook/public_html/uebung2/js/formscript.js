@@ -2,7 +2,18 @@ var geoPattern = /[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]
 var emailPattern = /[a-z0-9!#$%&'*+=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+=?^_`{|}~-]+)*@(?:obook?\.)+(?:[A-Z]{2}|eu)\b/i;
 var appointmentidPattern = /(?:\b|-)([0-9]{1}|100)\b/;
 
+function initializeMap() {
+    var mapProp = {
+        center: new google.maps.LatLng(52.30, 13.25),
+        zoom: 5,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    new google.maps.Map(document.getElementById("googleMaps"), mapProp);
+}
+google.maps.event.addDomListener(window, 'load', initializeMap);
+
 function validateForm(a) {
+    document.getElementById('errors').style.cssText = "font-size:14px; color:red;";
     switch (a) {
         case 'create' :
             validateCreate(a);
@@ -25,50 +36,83 @@ function validateFind(a) {
     var appointmentid = document.forms[a]["appointmentid"].value;
     var email = document.forms[a]["email"].value;
     var geo = document.forms[a]["geo"].value;
-    var boo = true;
     if (appointmentid !== "" && !appointmentidPattern.test(appointmentid)) {
-        alert("Please use a correct Appointment ID.\nRange: 0 - 100");
-        boo = false;
+        document.getElementById('errors').innerHTML = "Please use a correct Appointment ID.\nRange: 0 - 100";
+        document.forms[a]["appointmentid"].style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('errors').innerHTML = "";
+        document.forms[a]["appointmentid"].style.borderColor = "";
     }
     if (email !== "" && !emailPattern.test(email)) {
-        alert("Email has to end with @obook.eu");
-        boo = false;
+        document.getElementById('errors').innerHTML = "Email has to end with @obook.eu";
+        document.forms[a]["email"].style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('errors').innerHTML = "";
+        document.forms[a]["email"].style.borderColor = "";
     }
     if (geo !== "" && !geoPattern.test(geo)) {
-        alert("Wrong coordinate format was used.\nPlease see following example: \n-50.21, +142.54");
-        boo = false;
+        document.getElementById('errors').innerHTML = "Wrong coordinate format was used.\nPlease see following example: \n-50.21, +142.54";
+        document.forms[a]["geo"].style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('errors').innerHTML = "";
+        document.forms[a]["geo"].style.borderColor = "";
     }
-    Boolean(boo);
+    return(true);
 }
 
 function validateDelete(a) {
     var appointmentid = document.forms[a]["appointmentid"].value;
     var email = document.forms[a]["email"].value;
-    var boo = true;
     if (appointmentid === "" || !appointmentidPattern.test(appointmentid)) {
-        alert("Please use a correct Appointment ID.\nRange: 0 - 100");
-        boo = false;
+        document.getElementById('errors').innerHTML = "Please use a correct Appointment ID.\nRange: 0 - 100";
+        document.forms[a]["appointmentid"].style.borderColor = "red";
+        return false;
+    } else {
+        document.forms[a]["appointmentid"].style.borderColor = "";
+        document.getElementById('errors').innerHTML = "";
     }
-    if (email === "" || !emailPattern.test(email)) {
-        alert("Email cannot be empty has to end with @obook.eu");
-        boo = false;
+    if (email === "") {
+        document.getElementById('errors').innerHTML = "Email cannot be empty.";
+        document.forms[a]["email"].style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('errors').innerHTML = "";
+        document.forms[a]["email"].style.borderColor = "";
     }
-    Boolean(boo);
+    if (email !== "" && !(emailPattern.test(email))) {
+        document.getElementById('errors').innerHTML = "Email has to end with @obook.eu";
+        document.forms[a]["email"].style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('errors').innerHTML = "";
+        document.forms[a]["email"].style.borderColor = "";
+    }
+    return(true);
 }
 
 function validateUpdate(a) {
     var appointmentid = document.forms[a]["appointmentid"].value;
     var geo = document.forms[a]["geo"].value;
-    var boo = true;
     if (appointmentid === "" || !appointmentidPattern.test(appointmentid)) {
-        alert("Please use a correct Appointment ID.\nRange: 0 - 100");
-        boo = false;
+        document.getElementById('errors').innerHTML = "Please use a correct Appointment ID.\nRange: 0 - 100";
+        document.forms[a]["appointmentid"].style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('errors').innerHTML = "";
+        document.forms[a]["appointmentid"].style.borderColor = "";
     }
     if (geo !== "" && !geoPattern.test(geo)) {
-        alert("Wrong coordinate format was used.\nPlease see following example: \n-50.21, +142.54");
-        boo = false;
+        document.getElementById('errors').innerHTML = "Wrong coordinate format was used.\nPlease see following example: \n-50.21, +142.54";
+        document.forms[a]["geo"].style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('errors').innerHTML = "";
+        document.forms[a]["geo"].style.borderColor = "";
     }
-    Boolean(boo);
+    return(true);
 }
 
 function validateCreate(a) {
@@ -77,32 +121,55 @@ function validateCreate(a) {
     var email = document.forms[a]["email"].value;
     var date = document.forms[a]["date"].value;
     var time = document.forms[a]["time"].value;
-    var boo = true;
     if (subject === "") {
-        alert("Subject can't be empty.");
-        boo = false;
+        document.getElementById('errors').innerHTML = "Subject can't be empty.";
+        document.forms[a]["subject"].style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('errors').innerHTML = "";
+        document.forms[a]["subject"].style.borderColor = "";
     }
     if (geo !== "" && !geoPattern.test(geo)) {
-        alert("Wrong coordinate format was used.\nPlease see following example: \n-50.21, +142.54");
-        boo = false;
+        document.getElementById('errors').innerHTML = "Wrong coordinate format was used.\nPlease see following example: \n-50.21, +142.54";
+        document.forms[a]["geo"].style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('errors').innerHTML = "";
+        document.forms[a]["geo"].style.borderColor = "";
     }
     if (email === "") {
-        alert("Email can't be empty.");
-        boo = false;
+        document.getElementById('errors').innerHTML = "Email can't be empty.";
+        document.forms[a]["email"].style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('errors').innerHTML = "";
+        document.forms[a]["email"].style.borderColor = "";
     }
     if (email !== "" && !(emailPattern.test(email))) {
-        alert("Email has to end with @obook.eu");
-        boo = false;
+        document.getElementById('errors').innerHTML = "Email has to end with @obook.eu";
+        document.forms[a]["email"].style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('errors').innerHTML = "";
+        document.forms[a]["email"].style.borderColor = "";
     }
     if (date === "") {
-        alert("Date can't be empty.");
-        boo = false;
+        document.getElementById('errors').innerHTML = "Date can't be empty.";
+        document.forms[a]["date"].style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('errors').innerHTML = "";
+        document.forms[a]["date"].style.borderColor = "";
     }
     if (time === "") {
-        alert("Time can't be empty.");
-        boo = false;
+        document.getElementById('errors').innerHTML = "Time can't be empty.";
+        document.forms[a]["time"].style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('errors').innerHTML = "";
+        document.forms[a]["time"].style.borderColor = "";
     }
-    Boolean(boo);
+    return(true);
 }
 
 function generateData(a) {
