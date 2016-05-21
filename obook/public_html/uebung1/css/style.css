@@ -25,7 +25,7 @@ header {
     color: #EEEEEE;
     background-color: #121212;
     text-align: center;
-    margin-bottom: 33%;
+    margin-bottom: 675px;
 }
 
 /* Style der Navigationspunkte */
@@ -63,7 +63,7 @@ footer a {
 }
 
 /* Style der dunklen Abschnitte */
-#black {
+.black {
     padding: 5% 10%;
     font-size: 150%;
     color: #EEEEEE;
@@ -71,7 +71,7 @@ footer a {
 }
 
 /* Style der hellen Abschnitte */
-#white {
+.white {
     padding: 5% 10%;
     font-size: 150%;
     color: black;
