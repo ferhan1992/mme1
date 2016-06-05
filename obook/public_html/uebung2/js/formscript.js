@@ -1,8 +1,8 @@
 (function () {
 
-    var geoPattern = /[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/;
+    var geoPattern = /^[+-]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[+-]?(([1-9]?\d|1[0-7]\d)(\.\d+)?|180(\.0+)?)$/;
     var emailPattern = /[a-z0-9!#$%&'*+=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+=?^_`{|}~-]+)*@(?:obook?\.)+(?:[A-Z]{2}|eu)\b/i;
-    var appointmentidPattern = /(?:\b|-)([0-9]{1}|100)\b/;
+    var appointmentidPattern = /^[1-9][0-9]?$|^100$/;
 
 
     window.addEventListener("load", init, false);
@@ -76,7 +76,7 @@
         var email = document.forms[a]["email"].value;
         var geo = document.forms[a]["geo"].value;
         if (appointmentid !== "" && !appointmentidPattern.test(appointmentid)) {
-            document.getElementById('errors').innerHTML = "Please use a correct Appointment ID.\nRange: 0 - 100";
+            document.getElementById('errors').innerHTML = "Please use a correct Appointment ID.\nRange: 1 - 100";
             document.forms[a]["appointmentid"].style.borderColor = "red";
             return false;
         } else {
@@ -106,7 +106,7 @@
         var appointmentid = document.forms[a]["appointmentid"].value;
         var email = document.forms[a]["email"].value;
         if (appointmentid === "" || !appointmentidPattern.test(appointmentid)) {
-            document.getElementById('errors').innerHTML = "Please use a correct Appointment ID.\nRange: 0 - 100";
+            document.getElementById('errors').innerHTML = "Please use a correct Appointment ID.\nRange: 1 - 100";
             document.forms[a]["appointmentid"].style.borderColor = "red";
             return false;
         } else {
@@ -136,7 +136,7 @@
         var appointmentid = document.forms[a]["appointmentid"].value;
         var geo = document.forms[a]["geo"].value;
         if (appointmentid === "" || !appointmentidPattern.test(appointmentid)) {
-            document.getElementById('errors').innerHTML = "Please use a correct Appointment ID.\nRange: 0 - 100";
+            document.getElementById('errors').innerHTML = "Please use a correct Appointment ID.\nRange: 1 - 100";
             document.forms[a]["appointmentid"].style.borderColor = "red";
             return false;
         } else {
