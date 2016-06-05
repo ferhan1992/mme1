@@ -3,12 +3,11 @@ var emailPattern = /[a-z0-9!#$%&'*+=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+=?^_`{|}~-]+)
 var appointmentidPattern = /(?:\b|-)([0-9]{1}|100)\b/;
 
 function initializeMap() {
-    var mapProp = {
+    var map = {
         center: new google.maps.LatLng(52.30, 13.25),
-        zoom: 5,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        zoom: 5
     };
-    new google.maps.Map(document.getElementById("googleMaps"), mapProp);
+    new google.maps.Map(document.getElementById("googleMaps"), map);
 }
 google.maps.event.addDomListener(window, 'load', initializeMap);
 
