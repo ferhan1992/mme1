@@ -63,11 +63,11 @@
                             Appointment management Menu
                         </h4>
                         <nav>
-                            <button name="Create" onclick="switchForm('createform')">Create Appointment</button>
-                            <button name="Find" onclick="switchForm('findform')">Find Appointment</button>
-                            <button name="Update" onclick="switchForm('updateform')">Update Appointment</button>
-                            <button name="Show all" onclick="switchForm('showallform')">Show all Appointments</button>
-                            <button name="Remove" onclick="switchForm('deleteform')">Delete Appointment</button>
+                            <button id="createbutton">Create Appointment</button>
+                            <button id="findbutton">Find Appointment</button>
+                            <button id="updatebutton">Update Appointment</button>
+                            <button id="showallbutton">Show all Appointments</button>
+                            <button id="deletebutton">Delete Appointment</button>
                         </nav><br>
                         <div id ="errors"></div>
                         <div class="box">
@@ -101,9 +101,9 @@
                                     </label><br>
                                     <input id="createtime" type="time" name="time">
                                     <h6>Fields marked with * are needed Fields. </h6>
-                                    <button name="submit" type="button" value="Submit" onclick="return validateForm('create')">Submit</button><br><br>
+                                    <button id="createsubmit" type="button" value="Submit">Submit</button><br><br>
                                 </form>
-                                <button name="generate" onclick="generateData('create')">Generate Test Data</button>
+                                <button id="creategenerate">Generate Test Data</button>
                             </div>
                             <div id="findform" class="form">
                                 <form id="find">
@@ -139,9 +139,9 @@
                                     </label><br>
                                     <input type="time" name="time" id="findtime">
                                     <h6>Fields marked with * are needed Fields. </h6>
-                                    <button name="submit" type="button" value="Submit" onclick="return validateForm('find')">Submit</button><br>
+                                    <button id = "findsubmit" type="button" value="Submit">Submit</button><br>
                                 </form><br>
-                                <button name="generate" onclick="generateData('find')">Generate Test Data</button>
+                                <button id="findgenerate">Generate Test Data</button>
                             </div>
                             <div id="updateform" class="form">
                                 <form id="update">
@@ -173,9 +173,9 @@
                                     </label><br>
                                     <input id="updatetime" type="time" name="time">
                                     <h6>Fields marked with * are needed Fields. </h6>
-                                    <button name="submit" type="button" value="Submit" onclick="return validateForm('update')">Submit</button><br>
+                                    <button id = "updatesubmit" type="button" value="Submit">Submit</button><br>
                                 </form><br>
-                                <button name="generate" onclick="generateData('update')">Generate Test Data</button>
+                                <button id="updategenerate">Generate Test Data</button>
                             </div>
                             <div id="showallform" class="form">
                                 <form id="showall">
@@ -199,9 +199,9 @@
                                     </label><br>
                                     <input id="deleteemail" type="email" name="email" placeholder = "anyone@obook.eu">
                                     <h6>Fields marked with * are needed Fields. </h6>
-                                    <button name="submit" type="button" value="Submit" onclick="return validateForm('delete')">Submit</button>
+                                    <button id = "deletesubmit"  type="button" value="Submit">Submit</button>
                                 </form><br>
-                                <button name="generate" onclick="generateData('delete')">Generate Test Data</button>
+                                <button id="deletegenerate">Generate Test Data</button>
                             </div>
                         </div>
                         <div class="box">
