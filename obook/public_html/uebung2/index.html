@@ -59,46 +59,30 @@
                 <article id="demo">
                     <h2>oBook Demo</h2>
                     <div align="center">
-                        <h4>
-                            Appointment management Menu
-                        </h4>
+                        <h3>Appointment management Menu</h3>
                         <nav>
                             <button id="createbutton">Create Appointment</button>
                             <button id="findbutton">Find Appointment</button>
                             <button id="updatebutton">Update Appointment</button>
                             <button id="showallbutton">Show all Appointments</button>
                             <button id="deletebutton">Delete Appointment</button>
-                        </nav><br>
-                        <div id ="errors"></div>
+                        </nav>
+                        <div id ="errors"></div><br>
                         <div class="box">
                             <div id="createform" class="startform">
                                 <form id="create">      
-                                    <h4>
-                                        Create Appointment
-                                    </h4>
-                                    <label for="createsubject">
-                                        Subject*
-                                    </label><br>
-                                    <input type="text" name="subject" id="createsubject"><br>
-                                    <label for="creategeo">
-                                        Geo Coordinates
-                                    </label><br>
-                                    <input id="creategeo" type="text" name="geo" placeholder = "-50.21, +142.54"><br>
-                                    <label for="createurl">
-                                        URL to location
-                                    </label><br>
-                                    <input id ="createurl" type="url" name="url" placeholder = "http://www.example.com"><br>
-                                    <label for="createemail">
-                                        Confirmation email address*
-                                    </label><br>
-                                    <input id="createemail" type="email" name="email" placeholder = "anyone@obook.eu"><br>
-                                    <label for="createdate">
-                                        Date*
-                                    </label><br>
-                                    <input id="createdate" type="date" name="date"><br>
-                                    <label for="createtime">
-                                        Time*
-                                    </label><br>
+                                    <h4>Create Appointment</h4>
+                                    <label for="createsubject">Subject*</label>
+                                    <input type="text" name="subject" id="createsubject">
+                                    <label for="creategeo">Geo Coordinates</label>
+                                    <input id="creategeo" type="text" name="geo" placeholder = "-50.21, +142.54">
+                                    <label for="createurl">URL to location</label>
+                                    <input id ="createurl" type="url" name="url" placeholder = "http://www.example.com">
+                                    <label for="createemail">Confirmation email address*</label>
+                                    <input id="createemail" type="email" name="email" placeholder = "anyone@obook.eu">
+                                    <label for="createdate">Date*</label>
+                                    <input id="createdate" type="date" name="date">
+                                    <label for="createtime">Time*</label>
                                     <input id="createtime" type="time" name="time">
                                     <h6>Fields marked with * are needed Fields. </h6>
                                     <button id="createsubmit" type="button" value="Submit">Submit</button>
@@ -107,36 +91,20 @@
                             </div>
                             <div id="findform" class="form">
                                 <form id="find">
-                                    <h4>
-                                        Find appointment
-                                    </h4> 
-                                    <label for="findappointmentid">
-                                        Appointment ID
-                                    </label><br>
-                                    <input id="findappointmentid" type="text" name="appointmentid"><br>
-                                    <label for="findsubject">
-                                        Subject
-                                    </label><br>
-                                    <input id="findsubject" type="text" name="subject" ><br>
-                                    <label for="findgeo">
-                                        Geo Coordinates
-                                    </label><br>
-                                    <input id="findgeo" type="text" name="geo" placeholder = "-50.21, +142.54"><br>
-                                    <label for="findurl">
-                                        URL to location
-                                    </label><br>
-                                    <input id="findurl" type="url" name="url" placeholder = "http://www.example.com"><br>
-                                    <label for="findemail">
-                                        Confirmation email address
-                                    </label><br>
-                                    <input id = "findemail" type="email" name="email" placeholder = "anyone@obook.eu"><br>
-                                    <label for="finddate">
-                                        Date
-                                    </label><br>
-                                    <input id="finddate" type="date" name="date"><br>
-                                    <label for="findtime">
-                                        Time
-                                    </label><br>
+                                    <h4>Find appointment</h4>
+                                    <label for="findappointmentid">Appointment ID</label>
+                                    <input id="findappointmentid" type="text" name="appointmentid">
+                                    <label for="findsubject">Subject</label>
+                                    <input id="findsubject" type="text" name="subject" >
+                                    <label for="findgeo">Geo Coordinates</label>
+                                    <input id="findgeo" type="text" name="geo" placeholder = "-50.21, +142.54">
+                                    <label for="findurl">URL to location</label>
+                                    <input id="findurl" type="url" name="url" placeholder = "http://www.example.com">
+                                    <label for="findemail">Confirmation email address</label>
+                                    <input id = "findemail" type="email" name="email" placeholder = "anyone@obook.eu">
+                                    <label for="finddate">Date</label>
+                                    <input id="finddate" type="date" name="date">
+                                    <label for="findtime">Time</label>
                                     <input type="time" name="time" id="findtime">
                                     <h6>Fields marked with * are needed Fields. </h6>
                                     <button id = "findsubmit" type="button" value="Submit">Submit</button>
@@ -145,32 +113,18 @@
                             </div>
                             <div id="updateform" class="form">
                                 <form id="update">
-                                    <h4>
-                                        Update Appointment
-                                    </h4>
-                                    <label for="updateappointmentid">
-                                        Appointment ID*
-                                    </label><br>
-                                    <input id="updateappointmentid" type="text" name="appointmentid"><br>
-                                    <label for="updatesubject">
-                                        Subject
-                                    </label><br>
-                                    <input id="updatesubject" type="text" name="subject" ><br>
-                                    <label for="updategeo">
-                                        Geo Coordinates
-                                    </label><br>
-                                    <input id="updategeo" type="text" name="geo" placeholder = "-50.21, +142.54"><br>
-                                    <label for="updateurl">
-                                        URL to location
-                                    </label><br>
-                                    <input id="updateurl" type="url" name="url" placeholder = "http://www.example.com"><br>
-                                    <label for="updatedate">
-                                        Date
-                                    </label><br>
-                                    <input id="updatedate" type="date" name="date"><br>
-                                    <label for="updatetime">
-                                        Time
-                                    </label><br>
+                                    <h4>Update Appointment</h4>
+                                    <label for="updateappointmentid">Appointment ID*</label>
+                                    <input id="updateappointmentid" type="text" name="appointmentid" >
+                                    <label for="updatesubject">Subject</label>
+                                    <input id="updatesubject" type="text" name="subject" >
+                                    <label for="updategeo">Geo Coordinates</label>
+                                    <input id="updategeo" type="text" name="geo" placeholder = "-50.21, +142.54">
+                                    <label for="updateurl">URL to location</label>
+                                    <input id="updateurl" type="url" name="url" placeholder = "http://www.example.com">
+                                    <label for="updatedate">Date</label>
+                                    <input id="updatedate" type="date" name="date">
+                                    <label for="updatetime">Time</label>
                                     <input id="updatetime" type="time" name="time">
                                     <h6>Fields marked with * are needed Fields. </h6>
                                     <button id = "updatesubmit" type="button" value="Submit">Submit</button>
@@ -179,24 +133,16 @@
                             </div>
                             <div id="showallform" class="form">
                                 <form id="showall">
-                                    <h4>
-                                        Show all appointments
-                                    </h4>    
-                                    <input type="submit" value="Submit"><br>
+                                    <h4>Show all appointments</h4>    
+                                    <button id = "showallsubmit"  type="button" value="Submit">Submit</button>
                                 </form>
                             </div>
                             <div id="deleteform" class="form">
                                 <form id="delete">  
-                                    <h4>
-                                        Delete Appointment
-                                    </h4>
-                                    <label for="deleteappointmentid">
-                                        Appointment ID*
-                                    </label><br>
-                                    <input id="deleteappointmentid" type="text" name="appointmentid"><br>
-                                    <label for="deleteemail">
-                                        Confirmation email address*
-                                    </label><br>
+                                    <h4>Delete Appointment</h4>
+                                    <label for="deleteappointmentid">Appointment ID*</label>
+                                    <input id="deleteappointmentid" type="text" name="appointmentid">
+                                    <label for="deleteemail">Confirmation email address*</label>
                                     <input id="deleteemail" type="email" name="email" placeholder = "anyone@obook.eu">
                                     <h6>Fields marked with * are needed Fields. </h6>
                                     <button id = "deletesubmit"  type="button" value="Submit">Submit</button>
@@ -204,7 +150,10 @@
                                 <button id="deletegenerate">Generate Test Data</button>
                             </div>
                         </div>
-                        <div class = "box" id="googleMaps" style="width:450px;height:450px;"></div>
+                        <div class = "box">
+                            <h4>Google Maps</h4>
+                            <div id="googleMaps" style="width:550px;height:550px;"></div>
+                        </div>
                         <table class="output">
                             <tr>
                                 <td>Appointment ID</td>

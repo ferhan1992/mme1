@@ -36,5 +36,6 @@
         document.getElementById('updateform').style.display = "none";
         document.getElementById('showallform').style.display = "none";
         document.getElementById('deleteform').style.display = "none";
+        document.getElementById('errors').style.display = "none";
     }
 })();
