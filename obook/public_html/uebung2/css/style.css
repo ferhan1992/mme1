@@ -7,6 +7,14 @@ body {
     background-image:url('../pictures/header.jpg')
 }
 
+button{
+    background-color: #F3F3F3;
+    padding: 7px;
+    font-size: 14px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
 /* Anpassung der h1 Überschrift für die komplette Seite */
 h1{
     font-size: 400%;
@@ -53,7 +61,6 @@ footer {
     text-align: center;
     font-weight: bold;
     list-style-type: none;
-
 }
 
 /* Style der Footerverlinkungen */
@@ -109,4 +116,8 @@ footer a {
     width: 20%;
     height: 400px;
     vertical-align:top;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
 }
