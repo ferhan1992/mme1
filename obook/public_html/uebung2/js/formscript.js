@@ -4,44 +4,6 @@
     var emailPattern = /[a-z0-9!#$%&'*+=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+=?^_`{|}~-]+)*@(?:obook?\.)+(?:[A-Z]{2}|eu)\b/i;
     var appointmentidPattern = /^[1-9][0-9]?$|^100$/;
 
-
-    window.addEventListener("load", init, false);
-
-    function init() {
-        document.getElementById('createsubmit').addEventListener('click', function () {
-            validateForm('create');
-        });
-
-        document.getElementById('findsubmit').addEventListener('click', function () {
-            validateForm('find');
-        });
-
-        document.getElementById('updatesubmit').addEventListener('click', function () {
-            validateForm('update');
-        });
-
-        document.getElementById('deletesubmit').addEventListener('click', function () {
-            validateForm('delete');
-        });
-
-        document.getElementById('creategenerate').addEventListener('click', function () {
-            generateData('create');
-        });
-
-        document.getElementById('findgenerate').addEventListener('click', function () {
-            generateData('find');
-        });
-
-        document.getElementById('updategenerate').addEventListener('click', function () {
-            generateData('update');
-        });
-
-        document.getElementById('deletegenerate').addEventListener('click', function () {
-            generateData('delete');
-        });
-    }
-
-
     function initializeMap() {
         var map = {
             center: new google.maps.LatLng(52.30, 13.25),
@@ -50,6 +12,173 @@
         new google.maps.Map(document.getElementById("googleMaps"), map);
     }
     google.maps.event.addDomListener(window, 'load', initializeMap);
+
+    function validateAppointmentId(a) {
+        var appointmentid = document.forms[a].appointmentid.value;
+        switch (a) {
+            case 'find' :
+                if (appointmentid !== "" && !appointmentidPattern.test(appointmentid)) {
+                    document.getElementById(a + 'appointmentiderrortext').innerHTML = "Please use a correct Appointment ID.<br>Range: 1 - 100";
+                    document.getElementById(a + 'appointmentiderrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+                    document.forms[a].appointmentid.style.borderColor = "#D75A4A";
+                } else if (appointmentid === "") {
+                    document.getElementById(a + 'appointmentiderrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+                    document.getElementById(a + 'appointmentiderrortext').innerHTML = "";
+                    document.forms[a].appointmentid.style.borderColor = "";
+                } else {
+                    document.getElementById(a + 'appointmentiderrortext').innerHTML = "";
+                    document.getElementById(a + 'dappointmentiderrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+                    document.forms[a].appointmentid.style.borderColor = "";
+                }
+                break;
+            default :
+                if (appointmentid === "" || !appointmentidPattern.test(appointmentid)) {
+                    document.getElementById(a + 'appointmentiderrortext').innerHTML = "Please use a correct Appointment ID.<br>Range: 1 - 100";
+                    document.getElementById(a + 'appointmentiderrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+                    document.forms[a].appointmentid.style.borderColor = "#D75A4A";
+                } else {
+                    document.getElementById(a + 'appointmentiderrortext').innerHTML = "";
+                    document.getElementById(a + 'appointmentiderrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+                    document.forms[a].appointmentid.style.borderColor = "";
+                }
+                break;
+        }
+
+    }
+
+    function validateDate(a) {
+        var date = document.forms[a].date.value;
+        switch (a) {
+            case 'create' :
+                if (date === "") {
+                    document.getElementById(a + 'dateerrortext').innerHTML = "Date can't be empty.";
+                    document.getElementById(a + 'dateerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+                    document.forms[a].date.style.borderColor = "#D75A4A";
+                } else {
+                    document.getElementById(a + 'dateerrortext').innerHTML = "";
+                    document.getElementById(a + 'dateerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+                    document.forms[a].date.style.borderColor = "";
+                }
+                break;
+            default :
+                if (date !== "") {
+                    document.getElementById(a + 'dateerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+                } else {
+                    document.getElementById(a + 'dateerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+                }
+                break;
+        }
+    }
+
+    function validateTime(a) {
+        var time = document.forms[a].time.value;
+        switch (a) {
+            case 'create' :
+                if (time !== "") {
+                    document.getElementById(a + 'timeerrortext').innerHTML = "";
+                    document.getElementById(a + 'timeerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+                    document.forms[a].time.style.borderColor = "";
+                } else {
+                    document.getElementById(a + 'timeerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+                    document.getElementById(a + 'timeerrortext').innerHTML = "Time can't be empty.";
+                    document.forms[a].time.style.borderColor = "#D75A4A";
+                }
+                break;
+            default :
+                if (time !== "") {
+                    document.getElementById(a + 'timeerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+                } else if (time === "") {
+                    document.getElementById(a + 'timeerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+                }
+                break;
+        }
+    }
+
+    function validateEmail(a) {
+        var email = document.forms[a].email.value;
+        switch (a) {
+            case'find' :
+                if (email !== "" && !emailPattern.test(email)) {
+                    document.getElementById(a + 'emailerrortext').innerHTML = "Email has to end with @obook.eu";
+                    document.getElementById(a + 'emailerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+                    document.forms[a].email.style.borderColor = "#D75A4A";
+                } else if (email === "") {
+                    document.getElementById(a + 'emailerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+                    document.getElementById(a + 'emailerrortext').innerHTML = "";
+                    document.forms[a].email.style.borderColor = "";
+                } else {
+                    document.getElementById(a + 'emailerrortext').innerHTML = "";
+                    document.getElementById(a + 'emailerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+                    document.forms[a].email.style.borderColor = "";
+                }
+                break;
+            default :
+                if (email === "") {
+                    document.getElementById(a + 'emailerrortext').innerHTML = "Email cannot be empty.";
+                    document.getElementById(a + 'emailerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+                    document.forms[a].email.style.borderColor = "#D75A4A";
+                } else if (email !== "" && !(emailPattern.test(email))) {
+                    document.getElementById(a + 'emailerrortext').innerHTML = "Email has to end with @obook.eu";
+                    document.getElementById(a + 'emailerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+                    document.forms[a].email.style.borderColor = "#D75A4A";
+                } else {
+                    document.getElementById(a + 'emailerrortext').innerHTML = "";
+                    document.getElementById(a + 'emailerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+                    document.forms[a].email.style.borderColor = "";
+                }
+                break;
+        }
+    }
+
+    function validateUrl(a) {
+        var url = document.forms[a].url.value;
+        if (url !== "") {
+            document.getElementById(a + 'urlerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+        } else {
+            document.getElementById(a + 'urlerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+        }
+    }
+
+    function validateSubject(a) {
+        var subject = document.forms[a].subject.value;
+        switch (a) {
+            case'create' :
+                if (subject === "") {
+                    document.getElementById(a + 'subjecterrortext').innerHTML = "Subject can't be empty.";
+                    document.getElementById(a + 'subjecterrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+                    document.forms[a].subject.style.borderColor = "#D75A4A";
+                } else {
+                    document.getElementById(a + 'subjecterrortext').innerHTML = "";
+                    document.getElementById(a + 'subjecterrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+                    document.forms[a].subject.style.borderColor = "";
+                }
+                break;
+            default :
+                if (subject !== "") {
+                    document.getElementById(a + 'subjecterrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+                } else {
+                    document.getElementById(a + 'subjecterrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+                }
+                break;
+        }
+    }
+
+    function validateGeo(a) {
+        var geo = document.forms[a].geo.value;
+        if (geo !== "" && !geoPattern.test(geo)) {
+            document.getElementById(a + 'geoerrortext').innerHTML = "Wrong coordinate format was used. <br> Please see following example: <br>-50.21, +142.54";
+            document.getElementById(a + 'geoerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+            document.forms[a].geo.style.borderColor = "#D75A4A";
+        } else if (geo === "") {
+            document.getElementById(a + 'geoerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+            document.getElementById(a + 'geoerrortext').innerHTML = "";
+            document.forms[a].geo.style.borderColor = "";
+        } else {
+            document.getElementById(a + 'geoerrortext').innerHTML = "";
+            document.getElementById(a + 'geoerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+            document.forms[a].geo.style.borderColor = "";
+        }
+    }
 
     function validateForm(a) {
         switch (a) {
@@ -71,245 +200,36 @@
     }
 
     function validateFind(a) {
-        var appointmentid = document.forms[a]["appointmentid"].value;
-        var email = document.forms[a]["email"].value;
-        var geo = document.forms[a]["geo"].value;
-        var subject = document.forms[a]["subject"].value;
-        var date = document.forms[a]["date"].value;
-        var time = document.forms[a]["time"].value;
-        var url = document.forms[a]["url"].value;
-        var boo = true;
-        if (appointmentid !== "" && !appointmentidPattern.test(appointmentid)) {
-            document.getElementById('findappointmentiderrortext').innerHTML = "Please use a correct Appointment ID.<br>Range: 1 - 100";
-            document.getElementById('findappointmentiderrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
-            document.forms[a]["appointmentid"].style.borderColor = "#D75A4A";
-            boo = false;
-        } else if (appointmentid === "") {
-            document.getElementById('findappointmentiderrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
-            document.getElementById('findappointmentiderrortext').innerHTML = "";
-            document.forms[a]["appointmentid"].style.borderColor = "";
-        } else {
-            document.getElementById('findappointmentiderrortext').innerHTML = "";
-            document.getElementById('findappointmentiderrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-            document.forms[a]["appointmentid"].style.borderColor = "";
-        }
-        if (email !== "" && !emailPattern.test(email)) {
-            document.getElementById('findemailerrortext').innerHTML = "Email has to end with @obook.eu";
-            document.getElementById('findemailerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
-            document.forms[a]["email"].style.borderColor = "#D75A4A";
-            boo = false;
-        } else if (email === "") {
-            document.getElementById('findemailerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
-            document.getElementById('findemailerrortext').innerHTML = "";
-            document.forms[a]["email"].style.borderColor = "";
-        } else {
-            document.getElementById('findemailerrortext').innerHTML = "";
-            document.getElementById('findemailerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-            document.forms[a]["email"].style.borderColor = "";
-        }
-        if (geo !== "" && !geoPattern.test(geo)) {
-            document.getElementById('findgeoerrortext').innerHTML = "Wrong coordinate format was used.<br>Please see following example: <br>-50.21, +142.54";
-            document.getElementById('findgeoerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
-            document.forms[a]["geo"].style.borderColor = "#D75A4A";
-            boo = false;
-        } else if (geo === "") {
-            document.getElementById('findgeoerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
-            document.getElementById('findgeoerrortext').innerHTML = "";
-            document.forms[a]["geo"].style.borderColor = "";
-        } else {
-            document.getElementById('findgeoerrortext').innerHTML = "";
-            document.getElementById('findgeoerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-            document.forms[a]["geo"].style.borderColor = "";
-        }
-        if (url !== "") {
-            document.getElementById('findurlerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-        } else {
-            document.getElementById('findurlerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
-        }
-        if (date !== "") {
-            document.getElementById('finddateerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-        } else {
-            document.getElementById('finddateerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
-        }
-        if (time !== "") {
-            document.getElementById('findtimeerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-        } else {
-            document.getElementById('findtimeerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
-        }
-        if (subject !== "") {
-            document.getElementById('findtimeerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-        } else {
-            document.getElementById('findtimeerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
-        }
-        return boo;
+        validateAppointmentId(a);
+        validateEmail(a);
+        validateGeo(a);
+        validateUrl(a);
+        validateDate(a);
+        validateTime(a);
+        validateSubject(a);
     }
 
     function validateDelete(a) {
-        var appointmentid = document.forms[a]["appointmentid"].value;
-        var email = document.forms[a]["email"].value;
-        var boo = true;
-        if (appointmentid === "" || !appointmentidPattern.test(appointmentid)) {
-            document.getElementById('deleteappointmentiderrortext').innerHTML = "Please use a correct Appointment ID.<br>Range: 1 - 100";
-            document.getElementById('deleteappointmentiderrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
-            document.forms[a]["appointmentid"].style.borderColor = "#D75A4A";
-            boo = false;
-        } else {
-            document.getElementById('deleteappointmentiderrortext').innerHTML = "";
-            document.getElementById('deleteappointmentiderrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-            document.forms[a]["appointmentid"].style.borderColor = "";
-        }
-        if (email === "") {
-            document.getElementById('deleteemailerrortext').innerHTML = "Email cannot be empty.";
-            document.getElementById('deleteemailerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
-            document.forms[a]["email"].style.borderColor = "#D75A4A";
-            boo = false;
-        } else if (email !== "" && !(emailPattern.test(email))) {
-            document.getElementById('deleteemailerrortext').innerHTML = "Email has to end with @obook.eu";
-            document.getElementById('deleteemailerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
-            document.forms[a]["email"].style.borderColor = "#D75A4A";
-            boo = false;
-        } else {
-            document.getElementById('deleteemailerrortext').innerHTML = "";
-            document.getElementById('deleteemailerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-            document.forms[a]["email"].style.borderColor = "";
-        }
-        return boo;
+        validateAppointmentId(a);
+        validateEmail(a);
     }
 
     function validateUpdate(a) {
-        var appointmentid = document.forms[a]["appointmentid"].value;
-        var geo = document.forms[a]["geo"].value;
-        var subject = document.forms[a]["subject"].value;
-        var date = document.forms[a]["date"].value;
-        var time = document.forms[a]["time"].value;
-        var url = document.forms[a]["url"].value;
-        var boo = true;
-        if (subject !== "") {
-            document.getElementById('updatesubjecterrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-        } else {
-            document.getElementById('updatesubjecterrortext').innerHTML = "";
-            document.getElementById('updatesubjecterrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
-        }
-        if (appointmentid === "" || !appointmentidPattern.test(appointmentid)) {
-            document.getElementById('updateappointmentiderrortext').innerHTML = "Please use a correct Appointment ID.<br>Range: 1 - 100";
-            document.getElementById('updateappointmentiderrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
-            document.forms[a]["appointmentid"].style.borderColor = "#D75A4A";
-            boo = false;
-        } else {
-            document.getElementById('updateappointmentiderrortext').innerHTML = "";
-            document.getElementById('updateappointmentiderrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-            document.forms[a]["appointmentid"].style.borderColor = "";
-        }
-        if (geo !== "" && !geoPattern.test(geo)) {
-            document.getElementById('updategeoerrortext').innerHTML = "Wrong coordinate format was used.<br>Please see following example: <br>-50.21, +142.54";
-            document.getElementById('updategeoerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
-            document.forms[a]["geo"].style.borderColor = "#D75A4A";
-            boo = false;
-        } else if (geo === "") {
-            document.getElementById('updategeoerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
-            document.getElementById('updategeoerrortext').innerHTML = "";
-            document.forms[a]["geo"].style.borderColor = "";
-        } else {
-            document.getElementById('updategeoerrortext').innerHTML = "";
-            document.getElementById('updategeoerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-            document.forms[a]["geo"].style.borderColor = "";
-        }
-        if (url !== "") {
-            document.getElementById('updateurlerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-        } else {
-            document.getElementById('updateurlerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
-        }
-        if (date !== "") {
-            document.getElementById('updatedateerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-        } else {
-            document.getElementById('updatedateerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
-        }
-        if (time !== "") {
-            document.getElementById('updatetimeerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-        } else if (time === "") {
-            document.getElementById('updatetimeerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
-        }
-        return boo;
+        validateAppointmentId(a);
+        validateGeo(a);
+        validateUrl(a);
+        validateDate(a);
+        validateTime(a);
+        validateSubject(a);
     }
 
     function validateCreate(a) {
-        var subject = document.forms[a]["subject"].value;
-        var geo = document.forms[a]["geo"].value;
-        var email = document.forms[a]["email"].value;
-        var date = document.forms[a]["date"].value;
-        var time = document.forms[a]["time"].value;
-        var url = document.forms[a]["url"].value;
-        var boo = true;
-        if (subject === "") {
-            document.getElementById('createsubjecterrortext').innerHTML = "Subject can't be empty.";
-            document.getElementById('createsubjecterrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
-            document.forms[a]["subject"].style.borderColor = "#D75A4A";
-            boo = false;
-        } else {
-            document.getElementById('createsubjecterrortext').innerHTML = "";
-            document.getElementById('createsubjecterrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-            document.forms[a]["subject"].style.borderColor = "";
-        }
-        if (url !== "") {
-            document.getElementById('createurlerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-        } else {
-            document.getElementById('createurlerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
-        }
-        if (geo !== "" && !geoPattern.test(geo)) {
-            document.getElementById('creategeoerrortext').innerHTML = "Wrong coordinate format was used. <br> Please see following example: <br>-50.21, +142.54";
-            document.getElementById('creategeoerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
-            document.forms[a]["geo"].style.borderColor = "#D75A4A";
-            boo = false;
-        } else if (geo === "") {
-            document.getElementById('creategeoerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
-            document.getElementById('creategeoerrortext').innerHTML = "";
-            document.forms[a]["geo"].style.borderColor = "";
-        } else {
-            document.getElementById('creategeoerrortext').innerHTML = "";
-            document.getElementById('creategeoerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-            document.forms[a]["geo"].style.borderColor = "";
-        }
-        if (email === "") {
-            document.getElementById('createemailerrortext').innerHTML = "Email can't be empty.";
-            document.getElementById('createemailerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
-            document.forms[a]["email"].style.borderColor = "#D75A4A";
-            boo = false;
-        } else {
-            document.getElementById('createemailerrortext').innerHTML = "";
-            document.getElementById('createemailerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-            document.forms[a]["email"].style.borderColor = "";
-        }
-        if (email !== "" && !(emailPattern.test(email))) {
-            document.getElementById('createemailerrortext').innerHTML = "Email has to end with @obook.eu";
-            document.getElementById('createemailerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
-            document.forms[a]["email"].style.borderColor = "#D75A4A";
-            boo = false;
-        } else {
-            document.getElementById('createemailerrortext').innerHTML = "";
-            document.getElementById('createemailerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-            document.forms[a]["email"].style.borderColor = "";
-        }
-        if (date === "") {
-            document.getElementById('createdateerrortext').innerHTML = "Date can't be empty.";
-            document.getElementById('createdateerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
-            document.forms[a]["date"].style.borderColor = "#D75A4A";
-            boo = false;
-        } else {
-            document.getElementById('createdateerrortext').innerHTML = "";
-            document.getElementById('createdateerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-            document.forms[a]["date"].style.borderColor = "";
-        }
-        if (time === "") {
-            document.getElementById('createtimeerrortext').innerHTML = "Time can't be empty.";
-            document.getElementById('createtimeerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
-            document.forms[a]["time"].style.borderColor = "#D75A4A";
-            boo = false;
-        } else {
-            document.getElementById('createtimeerrortext').innerHTML = "";
-            document.getElementById('createtimeerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-            document.forms[a]["time"].style.borderColor = "";
-        }
-        return boo;
+        validateEmail(a);
+        validateGeo(a);
+        validateUrl(a);
+        validateDate(a);
+        validateTime(a);
+        validateSubject(a);
     }
 
     var subjects = ["Test Subject", "Meeting", "Bowling", "Essen", "", "Aufgabe3"];
@@ -319,7 +239,6 @@
     var date = ["2017-01-01", "01-01-2017", "2020-13-35", "2017-01", ""];
     var time = ["5", ":15", "12:", "20:22", "", "28:65"];
     var appids = ["1", "100", "123abc123", "abc", "abv123", "123abc"];
-
     function generateData(a) {
         switch (a) {
             case 'create' :
@@ -355,4 +274,95 @@
                 return false;
         }
     }
+    function init() {
+        document.getElementById('createsubmit').addEventListener('click', function () {
+            validateForm('create');
+        });
+        document.getElementById('findsubmit').addEventListener('click', function () {
+            validateForm('find');
+        });
+        document.getElementById('updatesubmit').addEventListener('click', function () {
+            validateForm('update');
+        });
+        document.getElementById('deletesubmit').addEventListener('click', function () {
+            validateForm('delete');
+        });
+        document.getElementById('creategenerate').addEventListener('click', function () {
+            generateData('create');
+        });
+        document.getElementById('findgenerate').addEventListener('click', function () {
+            generateData('find');
+        });
+        document.getElementById('updategenerate').addEventListener('click', function () {
+            generateData('update');
+        });
+        document.getElementById('deletegenerate').addEventListener('click', function () {
+            generateData('delete');
+        });
+        document.getElementById('createsubject').addEventListener('keyup', function () {
+            validateSubject('create');
+        });
+        document.getElementById('findsubject').addEventListener('keyup', function () {
+            validateSubject('find');
+        });
+        document.getElementById('updatesubject').addEventListener('keyup', function () {
+            validateSubject('update');
+        });
+        document.getElementById('creategeo').addEventListener('keyup', function () {
+            validateGeo('create');
+        });
+        document.getElementById('findgeo').addEventListener('keyup', function () {
+            validateGeo('find');
+        });
+        document.getElementById('updategeo').addEventListener('keyup', function () {
+            validateGeo('update');
+        });
+        document.getElementById('createurl').addEventListener('keyup', function () {
+            validateUrl('create');
+        });
+        document.getElementById('findurl').addEventListener('keyup', function () {
+            validateUrl('find');
+        });
+        document.getElementById('updateurl').addEventListener('keyup', function () {
+            validateUrl('update');
+        });
+        document.getElementById('createemail').addEventListener('keyup', function () {
+            validateEmail('create');
+        });
+        document.getElementById('findemail').addEventListener('keyup', function () {
+            validateEmail('find');
+        });
+        document.getElementById('deleteemail').addEventListener('keyup', function () {
+            validateEmail('delete');
+        });
+        document.getElementById('createtime').addEventListener('keyup', function () {
+            validateTime('create');
+        });
+        document.getElementById('findtime').addEventListener('keyup', function () {
+            validateTime('find');
+        });
+        document.getElementById('updatetime').addEventListener('keyup', function () {
+            validateTime('update');
+        });
+        document.getElementById('createdate').addEventListener('keyup', function () {
+            validateDate('create');
+        });
+        document.getElementById('finddate').addEventListener('keyup', function () {
+            validateDate('find');
+        });
+        document.getElementById('updatedate').addEventListener('keyup', function () {
+            validateDate('update');
+        });
+        document.getElementById('findappointmentid').addEventListener('keyup', function () {
+            validateAppointmentId('find');
+        });
+        document.getElementById('updateappointmentid').addEventListener('keyup', function () {
+            validateAppointmentId('update');
+        });
+        document.getElementById('deleteappointmentid').addEventListener('keyup', function () {
+            validateAppointmentId('delete');
+        });
+    }
+
+    window.addEventListener("load", init, false);
 })();
