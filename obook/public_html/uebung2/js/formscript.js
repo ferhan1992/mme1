@@ -52,7 +52,6 @@
     google.maps.event.addDomListener(window, 'load', initializeMap);
 
     function validateForm(a) {
-        document.getElementById('errors').style.cssText = "font-size:14px; color:red;";
         switch (a) {
             case 'create' :
                 validateCreate(a);
@@ -75,83 +74,162 @@
         var appointmentid = document.forms[a]["appointmentid"].value;
         var email = document.forms[a]["email"].value;
         var geo = document.forms[a]["geo"].value;
+        var subject = document.forms[a]["subject"].value;
+        var date = document.forms[a]["date"].value;
+        var time = document.forms[a]["time"].value;
+        var url = document.forms[a]["url"].value;
+        var boo = true;
         if (appointmentid !== "" && !appointmentidPattern.test(appointmentid)) {
-            document.getElementById('errors').innerHTML = "Please use a correct Appointment ID.\nRange: 1 - 100";
-            document.forms[a]["appointmentid"].style.borderColor = "red";
-            return false;
+            document.getElementById('findappointmentiderrortext').innerHTML = "Please use a correct Appointment ID.<br>Range: 1 - 100";
+            document.getElementById('findappointmentiderrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+            document.forms[a]["appointmentid"].style.borderColor = "#D75A4A";
+            boo = false;
+        } else if (appointmentid === "") {
+            document.getElementById('findappointmentiderrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+            document.getElementById('findappointmentiderrortext').innerHTML = "";
+            document.forms[a]["appointmentid"].style.borderColor = "";
         } else {
-            document.getElementById('errors').innerHTML = "";
+            document.getElementById('findappointmentiderrortext').innerHTML = "";
+            document.getElementById('findappointmentiderrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
             document.forms[a]["appointmentid"].style.borderColor = "";
         }
         if (email !== "" && !emailPattern.test(email)) {
-            document.getElementById('errors').innerHTML = "Email has to end with @obook.eu";
-            document.forms[a]["email"].style.borderColor = "red";
-            return false;
+            document.getElementById('findemailerrortext').innerHTML = "Email has to end with @obook.eu";
+            document.getElementById('findemailerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+            document.forms[a]["email"].style.borderColor = "#D75A4A";
+            boo = false;
+        } else if (email === "") {
+            document.getElementById('findemailerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+            document.getElementById('findemailerrortext').innerHTML = "";
+            document.forms[a]["email"].style.borderColor = "";
         } else {
-            document.getElementById('errors').innerHTML = "";
+            document.getElementById('findemailerrortext').innerHTML = "";
+            document.getElementById('findemailerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
             document.forms[a]["email"].style.borderColor = "";
         }
         if (geo !== "" && !geoPattern.test(geo)) {
-            document.getElementById('errors').innerHTML = "Wrong coordinate format was used.\nPlease see following example: \n-50.21, +142.54";
-            document.forms[a]["geo"].style.borderColor = "red";
-            return false;
+            document.getElementById('findgeoerrortext').innerHTML = "Wrong coordinate format was used.<br>Please see following example: <br>-50.21, +142.54";
+            document.getElementById('findgeoerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+            document.forms[a]["geo"].style.borderColor = "#D75A4A";
+            boo = false;
+        } else if (geo === "") {
+            document.getElementById('findgeoerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+            document.getElementById('findgeoerrortext').innerHTML = "";
+            document.forms[a]["geo"].style.borderColor = "";
         } else {
-            document.getElementById('errors').innerHTML = "";
+            document.getElementById('findgeoerrortext').innerHTML = "";
+            document.getElementById('findgeoerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
             document.forms[a]["geo"].style.borderColor = "";
         }
-        return(true);
+        if (url !== "") {
+            document.getElementById('findurlerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+        } else {
+            document.getElementById('findurlerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+        }
+        if (date !== "") {
+            document.getElementById('finddateerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+        } else {
+            document.getElementById('finddateerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+        }
+        if (time !== "") {
+            document.getElementById('findtimeerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+        } else {
+            document.getElementById('findtimeerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+        }
+        if (subject !== "") {
+            document.getElementById('findtimeerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+        } else {
+            document.getElementById('findtimeerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+        }
+        return boo;
     }
 
     function validateDelete(a) {
         var appointmentid = document.forms[a]["appointmentid"].value;
         var email = document.forms[a]["email"].value;
+        var boo = true;
         if (appointmentid === "" || !appointmentidPattern.test(appointmentid)) {
-            document.getElementById('errors').innerHTML = "Please use a correct Appointment ID.\nRange: 1 - 100";
-            document.forms[a]["appointmentid"].style.borderColor = "red";
-            return false;
+            document.getElementById('deleteappointmentiderrortext').innerHTML = "Please use a correct Appointment ID.<br>Range: 1 - 100";
+            document.getElementById('deleteappointmentiderrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+            document.forms[a]["appointmentid"].style.borderColor = "#D75A4A";
+            boo = false;
         } else {
+            document.getElementById('deleteappointmentiderrortext').innerHTML = "";
+            document.getElementById('deleteappointmentiderrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
             document.forms[a]["appointmentid"].style.borderColor = "";
-            document.getElementById('errors').innerHTML = "";
         }
         if (email === "") {
-            document.getElementById('errors').innerHTML = "Email cannot be empty.";
-            document.forms[a]["email"].style.borderColor = "red";
-            return false;
+            document.getElementById('deleteemailerrortext').innerHTML = "Email cannot be empty.";
+            document.getElementById('deleteemailerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+            document.forms[a]["email"].style.borderColor = "#D75A4A";
+            boo = false;
+        } else if (email !== "" && !(emailPattern.test(email))) {
+            document.getElementById('deleteemailerrortext').innerHTML = "Email has to end with @obook.eu";
+            document.getElementById('deleteemailerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+            document.forms[a]["email"].style.borderColor = "#D75A4A";
+            boo = false;
         } else {
-            document.getElementById('errors').innerHTML = "";
+            document.getElementById('deleteemailerrortext').innerHTML = "";
+            document.getElementById('deleteemailerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
             document.forms[a]["email"].style.borderColor = "";
         }
-        if (email !== "" && !(emailPattern.test(email))) {
-            document.getElementById('errors').innerHTML = "Email has to end with @obook.eu";
-            document.forms[a]["email"].style.borderColor = "red";
-            return false;
-        } else {
-            document.getElementById('errors').innerHTML = "";
-            document.forms[a]["email"].style.borderColor = "";
-        }
-        return(true);
+        return boo;
     }
 
     function validateUpdate(a) {
         var appointmentid = document.forms[a]["appointmentid"].value;
         var geo = document.forms[a]["geo"].value;
-        if (appointmentid === "" || !appointmentidPattern.test(appointmentid)) {
-            document.getElementById('errors').innerHTML = "Please use a correct Appointment ID.\nRange: 1 - 100";
-            document.forms[a]["appointmentid"].style.borderColor = "red";
-            return false;
+        var subject = document.forms[a]["subject"].value;
+        var date = document.forms[a]["date"].value;
+        var time = document.forms[a]["time"].value;
+        var url = document.forms[a]["url"].value;
+        var boo = true;
+        if (subject !== "") {
+            document.getElementById('updatesubjecterrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
         } else {
-            document.getElementById('errors').innerHTML = "";
+            document.getElementById('updatesubjecterrortext').innerHTML = "";
+            document.getElementById('updatesubjecterrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+        }
+        if (appointmentid === "" || !appointmentidPattern.test(appointmentid)) {
+            document.getElementById('updateappointmentiderrortext').innerHTML = "Please use a correct Appointment ID.<br>Range: 1 - 100";
+            document.getElementById('updateappointmentiderrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+            document.forms[a]["appointmentid"].style.borderColor = "#D75A4A";
+            boo = false;
+        } else {
+            document.getElementById('updateappointmentiderrortext').innerHTML = "";
+            document.getElementById('updateappointmentiderrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
             document.forms[a]["appointmentid"].style.borderColor = "";
         }
         if (geo !== "" && !geoPattern.test(geo)) {
-            document.getElementById('errors').innerHTML = "Wrong coordinate format was used.\nPlease see following example: \n-50.21, +142.54";
-            document.forms[a]["geo"].style.borderColor = "red";
-            return false;
+            document.getElementById('updategeoerrortext').innerHTML = "Wrong coordinate format was used.<br>Please see following example: <br>-50.21, +142.54";
+            document.getElementById('updategeoerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+            document.forms[a]["geo"].style.borderColor = "#D75A4A";
+            boo = false;
+        } else if (geo === "") {
+            document.getElementById('updategeoerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+            document.getElementById('updategeoerrortext').innerHTML = "";
+            document.forms[a]["geo"].style.borderColor = "";
         } else {
-            document.getElementById('errors').innerHTML = "";
+            document.getElementById('updategeoerrortext').innerHTML = "";
+            document.getElementById('updategeoerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
             document.forms[a]["geo"].style.borderColor = "";
         }
-        return(true);
+        if (url !== "") {
+            document.getElementById('updateurlerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+        } else {
+            document.getElementById('updateurlerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+        }
+        if (date !== "") {
+            document.getElementById('updatedateerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+        } else {
+            document.getElementById('updatedateerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+        }
+        if (time !== "") {
+            document.getElementById('updatetimeerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+        } else if (time === "") {
+            document.getElementById('updatetimeerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+        }
+        return boo;
     }
 
     function validateCreate(a) {
@@ -160,55 +238,78 @@
         var email = document.forms[a]["email"].value;
         var date = document.forms[a]["date"].value;
         var time = document.forms[a]["time"].value;
+        var url = document.forms[a]["url"].value;
+        var boo = true;
         if (subject === "") {
-            document.getElementById('errors').innerHTML = "Subject can't be empty.";
-            document.forms[a]["subject"].style.borderColor = "red";
-            return false;
+            document.getElementById('createsubjecterrortext').innerHTML = "Subject can't be empty.";
+            document.getElementById('createsubjecterrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+            document.forms[a]["subject"].style.borderColor = "#D75A4A";
+            boo = false;
         } else {
-            document.getElementById('errors').innerHTML = "";
+            document.getElementById('createsubjecterrortext').innerHTML = "";
+            document.getElementById('createsubjecterrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
             document.forms[a]["subject"].style.borderColor = "";
         }
-        if (geo !== "" && !geoPattern.test(geo)) {
-            document.getElementById('errors').innerHTML = "Wrong coordinate format was used.\nPlease see following example: \n-50.21, +142.54";
-            document.forms[a]["geo"].style.borderColor = "red";
-            return false;
+        if (url !== "") {
+            document.getElementById('createurlerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
         } else {
-            document.getElementById('errors').innerHTML = "";
+            document.getElementById('createurlerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+        }
+        if (geo !== "" && !geoPattern.test(geo)) {
+            document.getElementById('creategeoerrortext').innerHTML = "Wrong coordinate format was used. <br> Please see following example: <br>-50.21, +142.54";
+            document.getElementById('creategeoerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+            document.forms[a]["geo"].style.borderColor = "#D75A4A";
+            boo = false;
+        } else if (geo === "") {
+            document.getElementById('creategeoerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
+            document.getElementById('creategeoerrortext').innerHTML = "";
+            document.forms[a]["geo"].style.borderColor = "";
+        } else {
+            document.getElementById('creategeoerrortext').innerHTML = "";
+            document.getElementById('creategeoerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
             document.forms[a]["geo"].style.borderColor = "";
         }
         if (email === "") {
-            document.getElementById('errors').innerHTML = "Email can't be empty.";
-            document.forms[a]["email"].style.borderColor = "red";
-            return false;
+            document.getElementById('createemailerrortext').innerHTML = "Email can't be empty.";
+            document.getElementById('createemailerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+            document.forms[a]["email"].style.borderColor = "#D75A4A";
+            boo = false;
         } else {
-            document.getElementById('errors').innerHTML = "";
+            document.getElementById('createemailerrortext').innerHTML = "";
+            document.getElementById('createemailerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
             document.forms[a]["email"].style.borderColor = "";
         }
         if (email !== "" && !(emailPattern.test(email))) {
-            document.getElementById('errors').innerHTML = "Email has to end with @obook.eu";
-            document.forms[a]["email"].style.borderColor = "red";
-            return false;
+            document.getElementById('createemailerrortext').innerHTML = "Email has to end with @obook.eu";
+            document.getElementById('createemailerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+            document.forms[a]["email"].style.borderColor = "#D75A4A";
+            boo = false;
         } else {
-            document.getElementById('errors').innerHTML = "";
+            document.getElementById('createemailerrortext').innerHTML = "";
+            document.getElementById('createemailerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
             document.forms[a]["email"].style.borderColor = "";
         }
         if (date === "") {
-            document.getElementById('errors').innerHTML = "Date can't be empty.";
-            document.forms[a]["date"].style.borderColor = "red";
-            return false;
+            document.getElementById('createdateerrortext').innerHTML = "Date can't be empty.";
+            document.getElementById('createdateerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+            document.forms[a]["date"].style.borderColor = "#D75A4A";
+            boo = false;
         } else {
-            document.getElementById('errors').innerHTML = "";
+            document.getElementById('createdateerrortext').innerHTML = "";
+            document.getElementById('createdateerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
             document.forms[a]["date"].style.borderColor = "";
         }
         if (time === "") {
-            document.getElementById('errors').innerHTML = "Time can't be empty.";
-            document.forms[a]["time"].style.borderColor = "red";
-            return false;
+            document.getElementById('createtimeerrortext').innerHTML = "Time can't be empty.";
+            document.getElementById('createtimeerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
+            document.forms[a]["time"].style.borderColor = "#D75A4A";
+            boo = false;
         } else {
-            document.getElementById('errors').innerHTML = "";
+            document.getElementById('createtimeerrortext').innerHTML = "";
+            document.getElementById('createtimeerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
             document.forms[a]["time"].style.borderColor = "";
         }
-        return(true);
+        return boo;
     }
 
     var subjects = ["Test Subject", "Meeting", "Bowling", "Essen", "", "Aufgabe3"];
@@ -216,9 +317,9 @@
     var urls = ["http://www.obook.eu", "", "https://www.obook.eu", "www.obook.eu", "obook.eu", "obook"];
     var emails = ["ferhan@obook.eu", "thismustfail.eu", "ferhan123@obook.eu", "@obook.eu", "ferhan@kaplanseren.de", ""];
     var date = ["2017-01-01", "01-01-2017", "2020-13-35", "2017-01", ""];
-    var time =  ["00:01", ":01", "00:", "5", "asd", "0001"];
+    var time = ["5", ":15", "12:", "20:22", "", "28:65"];
     var appids = ["1", "100", "123abc123", "abc", "abv123", "123abc"];
-    
+
     function generateData(a) {
         switch (a) {
             case 'create' :

@@ -6,6 +6,8 @@
         <meta name="description" content="Online appointment book">
         <meta name="author" content="Ferhan Kaplanseren and Ömür Düner">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="../uebung1/css/style.css" type="text/css"/>
+
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCiEIDjeh1tNqpk7DX8kwreVZXDb71Eec"></script>
         <script type="text/javascript" language="JavaScript" src="js/menuscript.js"></script>
         <script type="text/javascript" language="JavaScript" src="js/formscript.js"></script>
@@ -67,85 +69,151 @@
                             <button id="showallbutton">Show all Appointments</button>
                             <button id="deletebutton">Delete Appointment</button>
                         </nav>
-                        <div id ="errors"></div><br>
                         <div class="box">
                             <div id="createform" class="startform">
                                 <form id="create">      
                                     <h4>Create Appointment</h4>
-                                    <label for="createsubject">Subject*</label>
+
+                                    <label for="createsubject">Subject *</label>
                                     <input type="text" name="subject" id="createsubject">
+                                    <div id ="createsubjecterrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="createsubjecterrortext" class="errormessage"></div>
+
                                     <label for="creategeo">Geo Coordinates</label>
                                     <input id="creategeo" type="text" name="geo" placeholder = "-50.21, +142.54">
+                                    <div id ="creategeoerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="creategeoerrortext" class="errormessage"></div>
+
                                     <label for="createurl">URL to location</label>
                                     <input id ="createurl" type="url" name="url" placeholder = "http://www.example.com">
-                                    <label for="createemail">Confirmation email address*</label>
+                                    <div id ="createurlerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="createurlerrortext" class="errormessage"></div>
+
+                                    <label for="createemail">Confirmation email address *</label>
                                     <input id="createemail" type="email" name="email" placeholder = "anyone@obook.eu">
-                                    <label for="createdate">Date*</label>
+                                    <div id ="createemailerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="createemailerrortext" class="errormessage"></div>
+
+                                    <label for="createdate">Date *</label>
                                     <input id="createdate" type="date" name="date">
-                                    <label for="createtime">Time*</label>
+                                    <div id ="createdateerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="createdateerrortext" class="errormessage"></div>
+
+                                    <label for="createtime">Time *</label>
                                     <input id="createtime" type="time" name="time">
+                                    <div id ="createtimeerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="createtimeerrortext" class="errormessage"></div>
+
                                     <h6>Fields marked with * are needed Fields. </h6>
-                                    <button id="createsubmit" type="button" value="Submit">Submit</button>
+                                    <button id="createsubmit" type="button" value="Submit">Create</button>
                                 </form>
                                 <button id="creategenerate">Generate Test Data</button>
                             </div>
-                            <div id="findform" class="form">
+                            <div id="findform" class="forms">
                                 <form id="find">
                                     <h4>Find appointment</h4>
+
                                     <label for="findappointmentid">Appointment ID</label>
                                     <input id="findappointmentid" type="text" name="appointmentid">
+                                    <div id ="findappointmentiderrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="findappointmentiderrortext" class="errormessage"></div>
+
                                     <label for="findsubject">Subject</label>
                                     <input id="findsubject" type="text" name="subject" >
+                                    <div id ="findsubjecterrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="findsubjecterrortext" class="errormessage"></div>
+
                                     <label for="findgeo">Geo Coordinates</label>
                                     <input id="findgeo" type="text" name="geo" placeholder = "-50.21, +142.54">
+                                    <div id ="findgeoerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="findgeoerrortext" class="errormessage"></div>
+
                                     <label for="findurl">URL to location</label>
                                     <input id="findurl" type="url" name="url" placeholder = "http://www.example.com">
+                                    <div id ="findurlerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="findurlerrortext" class="errormessage"></div>
+
                                     <label for="findemail">Confirmation email address</label>
                                     <input id = "findemail" type="email" name="email" placeholder = "anyone@obook.eu">
+                                    <div id ="findemailerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="findemailerrortext" class="errormessage"></div>
+
                                     <label for="finddate">Date</label>
                                     <input id="finddate" type="date" name="date">
+                                    <div id ="finddateerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="finddateerrortext" class="errormessage"></div>
+
                                     <label for="findtime">Time</label>
                                     <input type="time" name="time" id="findtime">
+                                    <div id ="findtimeerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="findtimeerrortext" class="errormessage"></div>
+
                                     <h6>Fields marked with * are needed Fields. </h6>
-                                    <button id = "findsubmit" type="button" value="Submit">Submit</button>
+                                    <button id = "findsubmit" type="button" value="Submit">Find</button>
                                 </form>
                                 <button id="findgenerate">Generate Test Data</button>
                             </div>
-                            <div id="updateform" class="form">
+                            <div id="updateform" class="forms">
                                 <form id="update">
                                     <h4>Update Appointment</h4>
-                                    <label for="updateappointmentid">Appointment ID*</label>
+
+                                    <label for="updateappointmentid">Appointment ID *</label>
                                     <input id="updateappointmentid" type="text" name="appointmentid" >
+                                    <div id ="updateappointmentiderrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="updateappointmentiderrortext" class="errormessage"></div>
+
                                     <label for="updatesubject">Subject</label>
                                     <input id="updatesubject" type="text" name="subject" >
+                                    <div id ="updatesubjecterrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="updatesubjecterrortext" class="errormessage"></div>
+
                                     <label for="updategeo">Geo Coordinates</label>
                                     <input id="updategeo" type="text" name="geo" placeholder = "-50.21, +142.54">
+                                    <div id ="updategeoerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="updategeoerrortext" class="errormessage"></div>
+
                                     <label for="updateurl">URL to location</label>
                                     <input id="updateurl" type="url" name="url" placeholder = "http://www.example.com">
+                                    <div id ="updateurlerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="updateurlerrortext" class="errormessage"></div>
+
                                     <label for="updatedate">Date</label>
                                     <input id="updatedate" type="date" name="date">
+                                    <div id ="updatedateerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="updatedateerrortext" class="errormessage"></div>
+
                                     <label for="updatetime">Time</label>
                                     <input id="updatetime" type="time" name="time">
+                                    <div id ="updatetimeerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="updatetimeerrortext" class="errormessage"></div>
+
                                     <h6>Fields marked with * are needed Fields. </h6>
-                                    <button id = "updatesubmit" type="button" value="Submit">Submit</button>
+                                    <button id = "updatesubmit" type="button" value="Submit">Update</button>
                                 </form>
                                 <button id="updategenerate">Generate Test Data</button>
                             </div>
-                            <div id="showallform" class="form">
+                            <div id="showallform" class="forms">
                                 <form id="showall">
                                     <h4>Show all appointments</h4>    
-                                    <button id = "showallsubmit"  type="button" value="Submit">Submit</button>
+                                    <button id = "showallsubmit"  type="button" value="Submit">Show all</button>
                                 </form>
                             </div>
-                            <div id="deleteform" class="form">
+                            <div id="deleteform" class="forms">
                                 <form id="delete">  
                                     <h4>Delete Appointment</h4>
-                                    <label for="deleteappointmentid">Appointment ID*</label>
+
+                                    <label for="deleteappointmentid">Appointment ID *</label>
                                     <input id="deleteappointmentid" type="text" name="appointmentid">
-                                    <label for="deleteemail">Confirmation email address*</label>
+                                    <div id ="deleteappointmentiderrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="deleteappointmentiderrortext" class="errormessage"></div>
+
+                                    <label for="deleteemail">Confirmation email address *</label>
                                     <input id="deleteemail" type="email" name="email" placeholder = "anyone@obook.eu">
+                                    <div id ="deleteemailerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                    <div id ="deleteemailerrortext" class="errormessage"></div>
+
                                     <h6>Fields marked with * are needed Fields. </h6>
-                                    <button id = "deletesubmit"  type="button" value="Submit">Submit</button>
+                                    <button id = "deletesubmit"  type="button" value="Submit">Delete</button>
                                 </form>
                                 <button id="deletegenerate">Generate Test Data</button>
                             </div>
