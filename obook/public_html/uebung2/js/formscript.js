@@ -51,7 +51,7 @@
         switch (a) {
             case 'create' :
                 if (date === "") {
-                    document.getElementById(a + 'dateerrortext').innerHTML = "Date can't be empty.";
+                    document.getElementById(a + 'dateerrortext').innerHTML = "Date can't be empty and has to be be in correct Format.<br>Example: 01.01.2017";
                     document.getElementById(a + 'dateerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
                     document.forms[a].date.style.borderColor = "#D75A4A";
                 } else {
@@ -80,14 +80,14 @@
                     document.forms[a].time.style.borderColor = "";
                 } else {
                     document.getElementById(a + 'timeerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
-                    document.getElementById(a + 'timeerrortext').innerHTML = "Time can't be empty.";
+                    document.getElementById(a + 'timeerrortext').innerHTML = "Time can't be empty and has to be be in correct Format.<br>Range: 00:00 - 23:59";
                     document.forms[a].time.style.borderColor = "#D75A4A";
                 }
                 break;
             default :
                 if (time !== "") {
                     document.getElementById(a + 'timeerrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
-                } else if (time === "") {
+                } else {
                     document.getElementById(a + 'timeerrorimage').innerHTML = '<img src="pictures/unclear.png" alt="unclear">';
                 }
                 break;
@@ -98,8 +98,8 @@
         var email = document.forms[a].email.value;
         switch (a) {
             case'find' :
-                if (email !== "" && !emailPattern.test(email)) {
-                    document.getElementById(a + 'emailerrortext').innerHTML = "Email has to end with @obook.eu";
+                if (!emailPattern.test(email)) {
+                    document.getElementById(a + 'emailerrortext').innerHTML = "Email has to end with something@obook.eu";
                     document.getElementById(a + 'emailerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
                     document.forms[a].email.style.borderColor = "#D75A4A";
                 } else if (email === "") {
@@ -118,7 +118,7 @@
                     document.getElementById(a + 'emailerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
                     document.forms[a].email.style.borderColor = "#D75A4A";
                 } else if (email !== "" && !(emailPattern.test(email))) {
-                    document.getElementById(a + 'emailerrortext').innerHTML = "Email has to end with @obook.eu";
+                    document.getElementById(a + 'emailerrortext').innerHTML = "Email has to be like something@obook.eu";
                     document.getElementById(a + 'emailerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
                     document.forms[a].email.style.borderColor = "#D75A4A";
                 } else {
@@ -351,6 +351,24 @@
             validateDate('find');
         });
         document.getElementById('updatedate').addEventListener('keyup', function () {
+            validateDate('update');
+        });
+        document.getElementById('createtime').addEventListener('click', function () {
+            validateTime('create');
+        });
+        document.getElementById('findtime').addEventListener('click', function () {
+            validateTime('find');
+        });
+        document.getElementById('updatetime').addEventListener('click', function () {
+            validateTime('update');
+        });
+        document.getElementById('createdate').addEventListener('click', function () {
+            validateDate('create');
+        });
+        document.getElementById('finddate').addEventListener('click', function () {
+            validateDate('find');
+        });
+        document.getElementById('updatedate').addEventListener('click', function () {
             validateDate('update');
         });
         document.getElementById('findappointmentid').addEventListener('keyup', function () {
