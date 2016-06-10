@@ -98,7 +98,7 @@
         var email = document.forms[a].email.value;
         switch (a) {
             case'find' :
-                if (!emailPattern.test(email)) {
+                if (email !== "" && !emailPattern.test(email)) {
                     document.getElementById(a + 'emailerrortext').innerHTML = "Email has to end with something@obook.eu";
                     document.getElementById(a + 'emailerrorimage').innerHTML = '<img src="pictures/false.png" alt="error">';
                     document.forms[a].email.style.borderColor = "#D75A4A";
@@ -289,98 +289,83 @@
         });
         document.getElementById('creategenerate').addEventListener('click', function () {
             generateData('create');
+            validateForm('create');
         });
         document.getElementById('findgenerate').addEventListener('click', function () {
             generateData('find');
+            validateForm('find');
         });
         document.getElementById('updategenerate').addEventListener('click', function () {
             generateData('update');
+            validateForm('update');
         });
         document.getElementById('deletegenerate').addEventListener('click', function () {
             generateData('delete');
+            validateForm('delete');
         });
-        document.getElementById('createsubject').addEventListener('keyup', function () {
+        document.getElementById('createsubject').addEventListener('input', function () {
             validateSubject('create');
         });
-        document.getElementById('findsubject').addEventListener('keyup', function () {
+        document.getElementById('findsubject').addEventListener('input', function () {
             validateSubject('find');
         });
-        document.getElementById('updatesubject').addEventListener('keyup', function () {
+        document.getElementById('updatesubject').addEventListener('input', function () {
             validateSubject('update');
         });
-        document.getElementById('creategeo').addEventListener('keyup', function () {
+        document.getElementById('creategeo').addEventListener('input', function () {
             validateGeo('create');
         });
-        document.getElementById('findgeo').addEventListener('keyup', function () {
+        document.getElementById('findgeo').addEventListener('input', function () {
             validateGeo('find');
         });
-        document.getElementById('updategeo').addEventListener('keyup', function () {
+        document.getElementById('updategeo').addEventListener('input', function () {
             validateGeo('update');
         });
-        document.getElementById('createurl').addEventListener('keyup', function () {
+        document.getElementById('createurl').addEventListener('input', function () {
             validateUrl('create');
         });
-        document.getElementById('findurl').addEventListener('keyup', function () {
+        document.getElementById('findurl').addEventListener('input', function () {
             validateUrl('find');
         });
-        document.getElementById('updateurl').addEventListener('keyup', function () {
+        document.getElementById('updateurl').addEventListener('input', function () {
             validateUrl('update');
         });
-        document.getElementById('createemail').addEventListener('keyup', function () {
+        document.getElementById('createemail').addEventListener('input', function () {
             validateEmail('create');
         });
-        document.getElementById('findemail').addEventListener('keyup', function () {
+        document.getElementById('findemail').addEventListener('input', function () {
             validateEmail('find');
         });
-        document.getElementById('deleteemail').addEventListener('keyup', function () {
+        document.getElementById('deleteemail').addEventListener('input', function () {
             validateEmail('delete');
         });
-        document.getElementById('createtime').addEventListener('keyup', function () {
+        document.getElementById('createtime').addEventListener('input', function () {
             validateTime('create');
         });
-        document.getElementById('findtime').addEventListener('keyup', function () {
+        document.getElementById('findtime').addEventListener('input', function () {
             validateTime('find');
         });
-        document.getElementById('updatetime').addEventListener('keyup', function () {
+        document.getElementById('updatetime').addEventListener('input', function () {
             validateTime('update');
         });
-        document.getElementById('createdate').addEventListener('keyup', function () {
+        document.getElementById('createdate').addEventListener('input', function () {
             validateDate('create');
         });
-        document.getElementById('finddate').addEventListener('keyup', function () {
+        document.getElementById('finddate').addEventListener('input', function () {
             validateDate('find');
         });
-        document.getElementById('updatedate').addEventListener('keyup', function () {
+        document.getElementById('updatedate').addEventListener('input', function () {
             validateDate('update');
         });
-        document.getElementById('createtime').addEventListener('click', function () {
-            validateTime('create');
-        });
-        document.getElementById('findtime').addEventListener('click', function () {
-            validateTime('find');
-        });
-        document.getElementById('updatetime').addEventListener('click', function () {
-            validateTime('update');
-        });
-        document.getElementById('createdate').addEventListener('click', function () {
-            validateDate('create');
-        });
-        document.getElementById('finddate').addEventListener('click', function () {
-            validateDate('find');
-        });
-        document.getElementById('updatedate').addEventListener('click', function () {
-            validateDate('update');
-        });
-        document.getElementById('findappointmentid').addEventListener('keyup', function () {
+        document.getElementById('findappointmentid').addEventListener('input', function () {
             validateAppointmentId('find');
         });
-        document.getElementById('updateappointmentid').addEventListener('keyup', function () {
+        document.getElementById('updateappointmentid').addEventListener('input', function () {
             validateAppointmentId('update');
         });
-        document.getElementById('deleteappointmentid').addEventListener('keyup', function () {
+        document.getElementById('deleteappointmentid').addEventListener('input', function () {
             validateAppointmentId('delete');
         });
     }
-
     window.addEventListener("load", init, false);
 })();
