@@ -22,6 +22,7 @@
         document.getElementById('deletebutton').addEventListener('click', function () {
             switchForm('deleteform');
         });
+        document.getElementById('createform').style.display = "block";
     }
 
     function switchForm(a) {

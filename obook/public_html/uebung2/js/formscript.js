@@ -5,12 +5,26 @@
     var appointmentidPattern = /^[1-9][0-9]?$|^100$/;
 
     function initializeMap() {
-        var map = {
-            center: new google.maps.LatLng(52.52, 13.41),
-            zoom: 10
-        };
-        new google.maps.Map(document.getElementById("googleMaps"), map);
+        var mapOptions = {center: new google.maps.LatLng(52.52, 13.41), zoom: 10};
+
+        var map = new google.maps.Map(document.getElementById("googleMaps"), mapOptions);
+
+        google.maps.event.addListener(map, 'click', function (event) {
+            if (document.getElementById('createform').style.display === "block") {
+                document.getElementById('creategeo').value = event.latLng.lat() + "," + event.latLng.lng();
+                validateGeo('create');
+            }
+             if (document.getElementById('findform').style.display === "block") {
+                document.getElementById('findgeo').value = event.latLng.lat() + "," + event.latLng.lng();
+                validateGeo('find');
+            }
+            if (document.getElementById('updateform').style.display === "block") {
+                document.getElementById('updategeo').value = event.latLng.lat() + "," + event.latLng.lng();
+                validateGeo('update');
+            }
+        });
     }
+
     google.maps.event.addDomListener(window, 'load', initializeMap);
 
     function validateAppointmentId(a) {
