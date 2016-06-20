@@ -1,10 +1,12 @@
 /* Allgemeine Body Einstellungen der Seite */
 body {
-    margin:0px;
-    font-size:13px; 
-    font-family:Arial, "Helvetica Neue", Helvetica, sans-serif;
-    color:#EEEEEE;
+    font-family:'Roboto',sans-serif;
     background-image:url('../pictures/header.jpg')
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v15/CrYjSnGjrRCn0pd9VQsnFOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
 }
 
 button{
@@ -36,21 +38,12 @@ header {
     margin-bottom: 33%;
 }
 
-/* Style der Navigationspunkte */
-header nav li { 
-    margin: 0.1%;
-    display: inline;
-    font-size: 18px;
-}
-
 /* Style der Navigationsverlinkungen */
 header nav a {
-    text-decoration: none; 
+text-align: center;
     padding: 10px;
     font-weight: bold;
-    border: 2px black solid;
     color: black;
-    background-color: silver;
 }
 
 /* Style des Footer Bereichs */
