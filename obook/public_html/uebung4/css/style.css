@@ -1,0 +1,175 @@
+body {
+    font-size: 180%; 
+    font-family:'Roboto',sans-serif;
+    background-image:url('../pictures/header.jpg');
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v15/CrYjSnGjrRCn0pd9VQsnFOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
+}
+
+header {
+    text-align: center;
+}
+
+header img {
+    margin-top: 5%;
+    max-width: 50%;
+    height: auto;
+}
+
+.black {
+    padding: 5% 10%;
+    color: #EEEEEE;
+    background-color: #5A99FB;
+}
+
+.white {
+    padding: 5% 10%;
+    color: black;
+    background-color: #EEEEEE;
+}
+
+footer {
+    padding: 15px;;
+    color: #EEEEEE;
+    background-color: #000000;
+    text-align: right;
+    font-size: 70%;
+
+}
+
+footer a {
+    text-decoration: none; 
+    color: #FFFFFF;
+}
+
+.map_container{
+    position: relative;
+    width: 100%;
+    padding-bottom: 500px;
+}
+
+.map_container .map_canvas{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.forms {
+    width: 100%;
+    margin-top: 2%;
+    display: none;
+}
+.startform {
+    width: 100%;
+    margin-top: 2%;
+    display: block;
+}
+
+form label{
+    font-size:18px;
+    display: inline-block;
+}
+
+.errormessage {
+    font-size: 16px; 
+    color:#D75A4A;
+    margin-bottom: 2%;
+    margin-top: 1%;
+}
+
+.errorimage img{
+    width: 20px;
+}
+
+form h6{
+    font-size: 12px;
+    color: #D75A4A;
+}
+.formmenu{
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.output {
+    margin-top: 2%;
+    font-size: 14px;
+    width: 100%; 
+    border-collapse: collapse; 
+}
+#tableoutput{
+    display: none;
+}
+
+td, th { 
+    padding: 6px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+    table, thead, tbody, th, td, tr { 
+        display: block; 
+    }
+
+    thead tr { 
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr { border: 1px solid #ccc; }
+
+    td { 
+        border: none;
+        border-bottom: 1px solid #eee; 
+        position: relative;
+        padding-left: 50%; 
+    }
+
+    td:before { 
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%; 
+        padding-right: 10px; 
+        white-space: nowrap;
+    }
+
+    td:nth-of-type(1):before { content: "Appointment ID"; }
+    td:nth-of-type(2):before { content: "Subject"; }
+    td:nth-of-type(3):before { content: "Geo Coordinates"; }
+    td:nth-of-type(4):before { content: "Date"; }
+    td:nth-of-type(5):before { content: "Time"; }
+    td:nth-of-type(6):before { content: "URL"; }
+    td:nth-of-type(7):before { content: "E-Mail"; }
+}
+
+
+.back-to-top {
+    background: #ddd;
+    color: #5A99FB;
+    position: fixed;
+    bottom:20px;
+    right:20px;
+    padding:1em;
+}
+
+.pricing {  
+    text-align: center;
+    color:#5A99FB;
+}

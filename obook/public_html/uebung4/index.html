@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>oBook - your online appointment book</title>
+        <meta name="description" content="Online appointment book">
+        <meta name="author" content="Ferhan Kaplanseren and Ömür Düner">
+
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCiEIDjeh1tNqpk7DX8kwreVZXDb71Eec"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script type="text/javascript" language="JavaScript" src="js/menuscript.js"></script>
+        <script type="text/javascript" language="JavaScript" src="js/formscript.js"></script>
+        <script type="text/javascript" language="JavaScript" src="js/mainscripts.js"></script>
+        <script type="text/javascript" language="JavaScript" src="js/crudjs.js"></script>
+    </head>
+    <body>
+        <header class="page-header">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainmenu">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span> 
+                        </button>                              
+                        <a class="navbar-brand" href="#">oBook</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="mainmenu">                            
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#features">Features</a></li> 
+                            <li><a href="#pricing">Pricing</a></li> 
+                            <li><a href="#demo">Demo</a></li> 
+                            <li><a href="#support">Contact us</a></li> 
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="container">
+                <div class="col-xs-12">
+                    <img src="pictures/logo.png" alt="logo" />
+                </div>
+            </div>
+        </header>
+        <div class="row">
+            <div class="col-xs-12 black" id="about">
+                <article>
+                    <h1>About</h1>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>	
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                </article>
+            </div>
+            <div class="col-xs-12 white" id="features">
+                <article>
+                    <h1>Features</h1>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>	
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                </article>
+            </div>
+            <div class="col-xs-12 black" id="pricing">
+                <h1>Pricing</h1>
+                <h4>Choose your plan...</h4>
+                <div class="container">
+                    <div class="row pricing">
+                        <div class="col-md-4">
+                            <div class="well">
+                                <h3><b>Plan A</b></h3>
+                                <hr>
+                                <p>10 Appointmens / Week</p>
+                                <hr>
+                                <p>10 Push Notifications / Week</p>
+                                <hr>
+                                <p><b>FREE</b></p>
+                                <hr>
+                                <a class="btn btn-primary btn-block">Sign Up</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="well">
+                                <h3><b>Plan B</b></h3>
+                                <hr>
+                                <p>10 Push Notifications / Week</p>
+                                <hr>
+                                <p>100 Push Notifications / Week</p>
+                                <hr>
+                                <p><b>$ 2,49 / Month</b></p>
+                                <hr>
+                                <a class="btn btn-primary btn-block">Sign Up</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="well">
+                                <h3><b>Plan C</b></h3>
+                                <hr>
+                                <p>UNLIMITED Push Notifications / Week</p>
+                                <hr>
+                                <p>UNLIMITED Push Notifications / Week</p>
+                                <hr>
+                                <p><b>€ 4,99 / Month</b></p>
+                                <hr>
+                                <a href="#" class="btn btn-primary btn-block">Sign Up</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 white center-block" id="demo">
+                <h1>oBook Demo</h1>
+                <div class="formmenu">
+                    <h3>Appointment Menu</h3>
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose your form...<span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#demo" id="createbutton">Create appointment</a></li>
+                            <li><a href="#demo" id="findbutton">Find appointment</a></li>
+                            <li><a href="#demo" id="updatebutton">Update appointment</a></li>
+                            <li><a href="#demo" id="showallbutton">Show all appointments</a></li>
+                            <li><a href="#demo" id="deletebutton">Delete Appointment</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div id="createform" class="startform">
+                        <form id="create" method="post">
+                            <fieldset>
+                                <legend>Create appointment</legend>
+                                <div class="form-group">
+                                    <label for="createsubject" class="control-label">Subject *</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="subject" id="createsubject">
+                                        <div class="input-group-addon">
+                                            <div id ="createsubjecterrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="createsubjecterrortext" class="errormessage"></div>
+
+                                    <label for="creategeo" class="control-label">Geo Coordinates</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="creategeo" name="geo" placeholder="-50.21, +142.54 (use map below)">
+                                        <div class="input-group-addon">
+                                            <div id ="creategeoerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="creategeoerrortext" class="errormessage"></div>
+
+                                    <label for="createurl" class="control-label">URL</label>
+                                    <div class="input-group">
+                                        <input type="url" class="form-control" id="createurl" name="url" placeholder="http://example.com">
+                                        <div class="input-group-addon">
+                                            <div id ="createurlerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="createurlerrortext" class="errormessage"></div>
+
+                                    <label for="createemail" class="control-label">E-Mail *</label>
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" id="createemail" name="email" placeholder="anyone@obook.eu" required="">
+                                        <div class="input-group-addon">
+                                            <div id ="createemailerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="createemailerrortext" class="errormessage"></div>
+
+                                    <label for="createdate" class="control-label">Date *</label>
+                                    <div class="input-group">
+                                        <input type="date" name="date" class="form-control" id="createdate" required="">
+                                        <div class="input-group-addon">
+                                            <div id ="createdateerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="createdateerrortext" class="errormessage"></div>
+
+                                    <label for="createtime" class="control-label">Time *</label>
+                                    <div class="input-group">
+                                        <input type="time" class="form-control" id="createtime" name="time" required="">
+                                        <div class="input-group-addon">
+                                            <div id ="createtimeerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="createtimeerrortext" class="errormessage"></div>
+                                </div>
+                                <div><h6>Fields marked with * are needed Fields. </h6></div>
+                                <div class="form-group">
+                                    <label class="control-label"></label>
+                                    <div class="text-center">
+                                        <div id="createsubmitGroup" class="btn-group" role="group" aria-label="">
+                                            <button type="button" id="createsubmit" name="createsubmit" class="btn btn-success" aria-label="Create" value="Submit" >Create</button>
+                                            <button type="button" id="creategenerate" name="creategenerate" class="btn btn-danger" aria-label="Create">Generate</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div id="findform" class="forms">
+                        <form id="find">
+                            <fieldset>
+                                <legend>Find appointment</legend>
+                                <div class="form-group">
+                                    <label for="findappointmentid" class="control-label">Appointment ID</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="appointmentid" id="findappointmentid">                                    
+                                        <div class="input-group-addon">
+                                            <div id ="findappointmentiderrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="findappointmentiderrortext" class="errormessage"></div>
+
+                                    <label for="findsubject" class="control-label">Subject</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="findsubject" name="subject">
+                                        <div class="input-group-addon">
+                                            <div id ="findsubjecterrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="findsubjecterrortext" class="errormessage"></div>
+
+                                    <label for="findgeo" class="control-label">Geo Coordinates</label>
+                                    <div class="input-group">
+                                        <input type="url" class="form-control" id="findgeo" name="geo" placeholder="-50.21, +142.54 (use map below)">
+                                        <div class="input-group-addon">
+                                            <div id ="findgeoerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="findgeoerrortext" class="errormessage"></div>
+
+                                    <label for="findurl" class="control-label">URL</label>
+                                    <div class="input-group">
+                                        <input type="url" class="form-control" id="findurl" name="url" placeholder = "http://www.example.com">
+                                        <div class="input-group-addon">
+                                            <div id ="findurlerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="findurlerrortext" class="errormessage"></div>
+
+                                    <label for="findemail" class="control-label">E-Mail</label>
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" id="findemail" name="email" placeholder="anyone@obook.eu" required="">
+                                        <div class="input-group-addon">
+                                            <div id ="findemailerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="findemailerrortext" class="errormessage"></div>
+
+                                    <label for="finddate" class="control-label">Date</label>
+                                    <div class="input-group">
+                                        <input type="date" name="date" class="form-control" id="finddate" required="">
+                                        <div class="input-group-addon">
+                                            <div id ="finddateerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="finddateerrortext" class="errormessage"></div>
+
+                                    <label for="findtime" class="control-label">Time</label>
+                                    <div class="input-group">
+                                        <input type="time" class="form-control" id="findtime" name="time" required="">
+                                        <div class="input-group-addon">
+                                            <div id ="findtimeerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="findtimeerrortext" class="errormessage"></div>
+                                </div>
+                                <h6>Fields marked with * are needed Fields. </h6>
+                                <div class="form-group">
+                                    <label class="control-label"></label>
+                                    <div class="text-center">
+                                        <div id="findsubmitGroup" class="btn-group" role="group" aria-label="">
+                                            <button type="button" id="findsubmit" name="findsubmit" class="btn btn-success" aria-label="Find" value="Submit">Find</button>
+                                            <button type="button" id="findgenerate" name="findgenerate" class="btn btn-danger" aria-label="Find">Generate</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div id="updateform" class="forms">
+                        <form id="update">
+                            <fieldset>
+                                <legend>Update appointment</legend>
+                                <div class="form-group">
+                                    <label for="updateappointmentid" class="control-label">Appointment ID *</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="appointmentid" id="updateappointmentid">                                    
+                                        <div class="input-group-addon">
+                                            <div id ="updateappointmentiderrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="updateappointmentiderrortext" class="errormessage"></div>
+
+                                    <label for="updatesubject" class="control-label">Subject</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="updatesubject" name="subject">
+                                        <div class="input-group-addon">
+                                            <div id ="updatesubjecterrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="updatesubjecterrortext" class="errormessage"></div>
+
+                                    <label for="updategeo" class="control-label">Geo Coordinates</label>
+                                    <div class="input-group">
+                                        <input type="url" class="form-control" id="updategeo" name="geo" placeholder="-50.21, +142.54 (use map below)">
+                                        <div class="input-group-addon">
+                                            <div id ="updategeoerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="updategeoerrortext" class="errormessage"></div>
+
+                                    <label for="updateurl" class="control-label">URL</label>
+                                    <div class="input-group">
+                                        <input type="url" class="form-control" id="updateurl" name="url" placeholder = "http://www.example.com">
+                                        <div class="input-group-addon">
+                                            <div id ="updateurlerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="updateurlerrortext" class="errormessage"></div>
+
+                                    <label for="updatedate" class="control-label">Date</label>
+                                    <div class="input-group">
+                                        <input type="date" name="date" class="form-control" id="updatedate" required="">
+                                        <div class="input-group-addon">
+                                            <div id ="updatedateerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="updatedateerrortext" class="errormessage"></div>
+
+                                    <label for="updatetime" class="control-label">Time</label>
+                                    <div class="input-group">
+                                        <input type="time" class="form-control" id="updatetime" name="time" required="">
+                                        <div class="input-group-addon">
+                                            <div id ="updatetimeerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="updatetimeerrortext" class="errormessage"></div>
+                                </div>
+                                <h6>Fields marked with * are needed Fields. </h6>
+                                <div class="form-group">
+                                    <label class="control-label"></label>
+                                    <div class="text-center">
+                                        <div id="updatesubmitGroup" class="btn-group" role="group" aria-label="">
+                                            <button type="button" id="updatesubmit" name="updatesubmit" class="btn btn-success" aria-label="Update" value="Submit">Update</button>
+                                            <button type="button" id="updategenerate" name="updategenerate" class="btn btn-danger" aria-label="Update">Generate</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div id="showallform" class="forms">
+                        <form id="showall">
+                            <fieldset>
+                                <legend>Show all appointments</legend>
+                                <div class="text-center">
+                                    <div id="showallsubmitGroup" class="btn-group" role="group" aria-label="">
+                                        <button type="button" id="showallsubmit" name="showallsubmit" class="btn btn-success" aria-label="Create" value="Submit">Show all</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div id="deleteform" class="forms">
+                        <form id="delete">
+                            <fieldset>
+                                <legend>Delete appointment</legend>
+                                <div class="form-group">
+                                    <label for="deleteappointmentid" class="control-label">Appointment ID *</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="appointmentid" id="deleteappointmentid">                                    
+                                        <div class="input-group-addon">
+                                            <div id ="deleteappointmentiderrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="deleteappointmentiderrortext" class="errormessage"></div>
+
+                                    <label for="deleteemail" class="control-label">E-Mail *</label>
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" id="deleteemail" name="email" placeholder="anyone@obook.eu" required="">
+                                        <div class="input-group-addon">
+                                            <div id ="deleteemailerrorimage" class="errorimage"><img src="pictures/unclear.png" alt="unclear"></div>
+                                        </div>
+                                    </div>
+                                    <div id ="deleteemailerrortext" class="errormessage"></div>
+                                </div>
+                                <h6>Fields marked with * are needed Fields. </h6>
+                                <div class="form-group">
+                                    <label class="control-label"></label>
+                                    <div class="text-center">
+                                        <div id="deletesubmitGroup" class="btn-group" role="group" aria-label="">
+                                            <button type="button" id="deletesubmit" name="deletesubmit" class="btn btn-success" aria-label="Delete" value="Submit">Delete</button>
+                                            <button type="button" id="deletegenerate" name="deletegenerate" class="btn btn-danger" aria-label="Delete">Generate</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div id="tableoutput">
+                    <table class="table-bordered table-striped output">
+                        <thead>
+                            <tr>
+                                <th>Appointment ID</th>
+                                <th>Subject</th>
+                                <th>Geo Coordinates</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>URL</th>
+                                <th>E-EMail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Dinner</td> 
+                                <td>+12.4, -125.3</td>
+                                <td>04/06/2016</td>
+                                <td>18:00</td>
+                                <td>http://www.hakiki-döner.de</td>
+                                <td>ferhan@kaplanseren.de</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Meeting</td> 
+                                <td>+40.4152, -80.3528</td>
+                                <td>04/06/2016</td>
+                                <td>12:30</td>
+                                <td>http://meeting.com</td>
+                                <td>ferhan@kaplanseren.de</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Golf</td> 
+                                <td>+12.30, -142.61</td>
+                                <td>05/06/2016</td>
+                                <td>14:30</td>
+                                <td>http://www.golfclub-wedding.de</td>
+                                <td>ferhan@kaplanseren.de</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Golf</td> 
+                                <td>+12.30, -142.61</td>
+                                <td>06/06/2016</td>
+                                <td>14:30</td>
+                                <td>http://www.golfclub-wedding.de</td>
+                                <td>ferhan@kaplanseren.de</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Cinema</td> 
+                                <td>+32, -122</td>
+                                <td>20/06/2016</td>
+                                <td>20:00</td>
+                                <td>http://www.cinemax.de</td>
+                                <td>ferhan@kaplanseren.de</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-xs-12 map_container">
+                <div id="googleMaps" class="map_canvas"></div>
+            </div>
+            <div class="col-xs-12 black" id="support">
+                <article>
+                    <h1>Contact us</h1>
+                    <form class="form-horizontal">
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="supportname">Full Name</label>  
+                                <div class="col-md-4">
+                                    <input id="supportname" name="supportname" type="text" placeholder="" class="form-control" required="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="supportemail">E-Mail address</label>  
+                                <div class="col-md-4">
+                                    <input id="supportemail" name="supportemail" type="text" placeholder="anyone@anywhere.com" class="form-control" required="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="supportmessage">Your message</label>
+                                <div class="col-md-4">                     
+                                    <textarea class="form-control" id="supportmessage" name="supportmessage" required=""></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="supportsubmit"></label>
+                                <div class="col-md-4">
+                                    <button id="supportsubmit" name="supportsubmit" class="btn btn-default">Send request</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </article>
+            </div>
+        </div>
+        <footer >
+            <p>Copyright &copy; 2016 - All Rights Reserved - <a href="#">oBook</a></p>
+        </footer>
+    </body>
+</html>
