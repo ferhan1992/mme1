@@ -41,7 +41,7 @@
                     document.forms[a].appointmentid.style.borderColor = "";
                 } else {
                     document.getElementById(a + 'appointmentiderrortext').innerHTML = "";
-                    document.getElementById(a + 'dappointmentiderrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
+                    document.getElementById(a + 'appointmentiderrorimage').innerHTML = '<img src="pictures/true.png" alt="ok">';
                     document.forms[a].appointmentid.style.borderColor = "";
                 }
                 break;
