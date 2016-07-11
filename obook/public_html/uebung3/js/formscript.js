@@ -289,10 +289,14 @@
         }
     }
     function init() {
+        document.getElementById('showallsubmit').addEventListener('click', function () {
+            document.getElementById('tableoutput').style.display = "inline";
+        });
         document.getElementById('createsubmit').addEventListener('click', function () {
             validateForm('create');
         });
         document.getElementById('findsubmit').addEventListener('click', function () {
+            document.getElementById('tableoutput').style.display = "inline";
             validateForm('find');
         });
         document.getElementById('updatesubmit').addEventListener('click', function () {

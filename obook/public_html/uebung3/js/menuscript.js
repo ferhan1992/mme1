@@ -2,7 +2,7 @@
 
     window.addEventListener("load", init, false);
 
-    function init() {
+    function init() {        
         document.getElementById('createbutton').addEventListener('click', function () {
             switchForm('createform');
         });
@@ -29,6 +29,7 @@
         var e = document.getElementById(a);
         hide();
         e.style.display = "block";
+        document.getElementById('tableoutput').style.display = "none";
     }
 
     function hide() {
@@ -38,4 +39,5 @@
         document.getElementById('showallform').style.display = "none";
         document.getElementById('deleteform').style.display = "none";
     }
+    
 })();

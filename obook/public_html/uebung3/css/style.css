@@ -1,17 +1,15 @@
-/* Allgemeine Body Einstellungen der Seite */
 body {
     font-size: 200%; 
     font-family:'Roboto',sans-serif;
-    background-image:url('../pictures/header.jpg')
-
+    background-image:url('../pictures/header.jpg');
 }
+
 @font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v15/CrYjSnGjrRCn0pd9VQsnFOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
+    font-family: 'Roboto';
+    font-style: normal;
+    src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v15/CrYjSnGjrRCn0pd9VQsnFOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
 }
 
-/* Style des Header Bereichs */
 header {
     text-align: center;
 }
@@ -22,7 +20,6 @@ header img {
     height: auto;
 }
 
-/* Style der dunklen Abschnitte */
 .black {
     padding: 5% 10%;
     font-size: 100%;
@@ -30,7 +27,6 @@ header img {
     background-color: #5A99FB;
 }
 
-/* Style der hellen Abschnitte */
 .white {
     padding: 5% 10%;
     font-size: 100%;
@@ -38,7 +34,6 @@ header img {
     background-color: #EEEEEE;
 }
 
-/* Style des Footer Bereichs */
 footer {
     padding: 1%;
     color: #EEEEEE;
@@ -48,16 +43,25 @@ footer {
     font-size: 70%;
 }
 
-/* Style der Footerverlinkungen */
 footer a {
     text-decoration: none; 
     color: #FFFFFF;
 }
 
-.map_canvas{
-   display: block;
-   width: 100%;
-   height: 500px;
+.map_container{
+    position: relative;
+    width: 100%;
+    padding-bottom: 500px;
+}
+
+.map_container .map_canvas{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .forms {
@@ -94,4 +98,61 @@ form h6{
 .formmenu{
     margin-top: 4%;
     margin-bottom: 4%;
+}
+
+.output {
+    margin-top: 2%;
+    font-size: 14px;
+    width: 100%; 
+    border-collapse: collapse; 
+}
+#tableoutput{
+    display: none;
+}
+
+td, th { 
+    padding: 6px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+    table, thead, tbody, th, td, tr { 
+        display: block; 
+    }
+
+    thead tr { 
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr { border: 1px solid #ccc; }
+
+    td { 
+        border: none;
+        border-bottom: 1px solid #eee; 
+        position: relative;
+        padding-left: 50%; 
+    }
+
+    td:before { 
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%; 
+        padding-right: 10px; 
+        white-space: nowrap;
+    }
+
+    td:nth-of-type(1):before { content: "Appointment ID"; }
+    td:nth-of-type(2):before { content: "Subject"; }
+    td:nth-of-type(3):before { content: "Geo Coordinates"; }
+    td:nth-of-type(4):before { content: "Date"; }
+    td:nth-of-type(5):before { content: "Time"; }
+    td:nth-of-type(6):before { content: "URL"; }
+    td:nth-of-type(7):before { content: "E-Mail"; }
 }
