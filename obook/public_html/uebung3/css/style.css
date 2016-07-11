@@ -1,7 +1,11 @@
 body {
-    font-size: 200%; 
+    font-size: 180%; 
     font-family:'Roboto',sans-serif;
     background-image:url('../pictures/header.jpg');
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 @font-face {
@@ -16,31 +20,29 @@ header {
 
 header img {
     margin-top: 5%;
-    max-width: 70%;
+    max-width: 50%;
     height: auto;
 }
 
 .black {
     padding: 5% 10%;
-    font-size: 100%;
     color: #EEEEEE;
     background-color: #5A99FB;
 }
 
 .white {
     padding: 5% 10%;
-    font-size: 100%;
     color: black;
     background-color: #EEEEEE;
 }
 
 footer {
-    padding: 1%;
+    padding: 15px;;
     color: #EEEEEE;
     background-color: #000000;
     text-align: right;
-    list-style-type: none;
     font-size: 70%;
+
 }
 
 footer a {
@@ -155,4 +157,19 @@ only screen and (max-width: 760px),
     td:nth-of-type(5):before { content: "Time"; }
     td:nth-of-type(6):before { content: "URL"; }
     td:nth-of-type(7):before { content: "E-Mail"; }
+}
+
+
+.back-to-top {
+    background: #ddd;
+    color: #5A99FB;
+    position: fixed;
+    bottom:20px;
+    right:20px;
+    padding:1em;
+}
+
+.pricing {  
+    text-align: center;
+    color:#5A99FB;
 }
