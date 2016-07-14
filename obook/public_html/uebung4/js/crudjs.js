@@ -7,17 +7,16 @@ $(document).ready(function () {
         var email = $("#createemail").val();
         var date = $("#createdate").val();
         var time = $("#createtime").val();
-// Returns successful data submission message when the entered information is stored in database.
+
         var dataString = 'subject=' + subject + '&geo=' + geo + '&url=' + url + '&email=' + email + '&date=' + date + '&time=' + time;
         if (subject == '' || email == '' || date == '' || time == '')
         {
             alert("Please Fill All Required Fields");
         } else
         {
-// AJAX Code To Submit Form.
             $.ajax({
                 type: "POST",
-                url: "includes/crud.php",
+                url: "includes/create.php",
                 data: dataString,
                 cache: false,
                 success: function (result) {
@@ -25,6 +24,33 @@ $(document).ready(function () {
                 }
             });
         }
+        return false;
+    });
+});
+
+$(document).ready(function () {
+    $("#findsubmit").click(function (e) {
+        e.preventDefault();
+        var appointmentid = $("#findappointmentid").val();
+        var subject = $("#findesubject").val();
+        var geo = $("#findgeo").val();
+        var url = $("#findurl").val();
+        var email = $("#findemail").val();
+        var date = $("#finddate").val();
+        var time = $("#findtime").val();
+
+        var dataString ='appointmentid=' + appointmentid + 'subject=' + subject + '&geo=' + geo + '&url=' + url + '&email=' + email + '&date=' + date + '&time=' + time;
+
+            $.ajax({
+                type: "POST",
+                url: "includes/find.php",
+                data: dataString,
+                cache: false,
+                success: function (result) {
+                    alert(result);
+                }
+            });
+        
         return false;
     });
 });

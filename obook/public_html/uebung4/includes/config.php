@@ -2,7 +2,7 @@
 try
 {
  // create PHP Data Object
- $pdo = new PDO('mysql:host=kaplanseren.de;dbname=mme1_', 'mme', 'asdasd123');
+ $pdo = new PDO('mysql:host=localhost;dbname=mme1_', 'mme', 'asdasd123');
  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  $pdo->exec('SET NAMES "utf8"');
 }
