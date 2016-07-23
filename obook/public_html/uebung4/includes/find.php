@@ -1,6 +1,6 @@
 <?php
 //include db configuration file
-$con=mysqli_connect("kaplanseren.de","mme","asdasd123","mme1_");
+$con=mysqli_connect("kaplanseren.de","mme","sd1322es","mme1_");
 
 // Check connection
 if (mysqli_connect_errno()) {
